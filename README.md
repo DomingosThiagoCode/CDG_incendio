@@ -1,4 +1,4 @@
-# CDG_incendio# CDG Incêndio
+# CDG Incêndio — análise espaço-temporal de áreas queimadas
 
 Projeto para análise espaço-temporal de grandes incêndios utilizando **Google Earth Engine**, **QGIS** e, posteriormente, ferramentas de análise espacial e métricas de paisagem.
 
