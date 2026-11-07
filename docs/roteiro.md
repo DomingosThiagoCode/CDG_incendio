@@ -11,12 +11,16 @@ reutilização a testar.
 - [x] Construir geometria acumulada e separar componentes em cada data (P1).
 - [x] Rastrear a região móvel principal por continuidade espacial (P2).
 - [x] Exportar GeoJSON dos produtos P1 e P2 para o estudo de caso.
+- [x] Preservar no repositório os dois exports históricos usados na validação
+  numérica inicial, com hashes e documentação de origem.
 - [x] Produzir uma tabela inicial de métricas diárias do P1 (material histórico).
 - [x] Produzir CSV inicial com métricas de trajetória da RM segundo a
   implementação da metodologia da Major (material histórico).
 
 ## Etapa A — consistência e reprodutibilidade
 
+- [x] Automatizar uma primeira verificação estrutural/numérica de P1 e P2.
+- [ ] Especificar testes espaciais com casos sintéticos e limites de tolerância.
 - [ ] Executar e registrar a validação topológica dos polígonos.
 - [ ] Consolidar a distinção entre arquivos exportados e versões tratadas.
 - [ ] Tornar reproduzíveis os cálculos que originaram os CSVs históricos.

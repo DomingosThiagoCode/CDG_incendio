@@ -48,6 +48,12 @@ mesmo comportamento em outros incêndios.
 O inventário das versões dos produtos, limitações e resultados conferidos está
 em [docs/dados_e_validacao.md](docs/dados_e_validacao.md).
 
+Os GeoJSON desta versão do estudo de caso estão em
+[`dados/estudo_caso_24340828/`](dados/estudo_caso_24340828/). São uma
+**fotografia dos exports históricos**, não uma nova execução do GEE nem uma
+validação científica final. O [registro de marcos](docs/marcos.md) documenta a
+passagem dos protótipos à fase de testes e automações.
+
 ## Arquivo principal
 
 ```text
@@ -89,8 +95,8 @@ consistência numérica (Python 3, sem dependências externas):
 
 ```bash
 python scripts/validar_produtos.py \
-  P1_componentes_24340828.geojson \
-  P2_regiao_movel_24340828.geojson
+  dados/estudo_caso_24340828/P1_componentes_24340828.geojson \
+  dados/estudo_caso_24340828/P2_regiao_movel_24340828.geojson
 ```
 
 O script compara datas, ranks, áreas, quantidades de componentes e deltas. **Não

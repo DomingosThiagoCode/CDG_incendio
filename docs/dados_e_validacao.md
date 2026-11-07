@@ -22,6 +22,16 @@ posição instantânea de uma frente de fogo ativo.
 | P1 | `P1_componentes_<ID>.geojson` | Um componente espacial em uma data |
 | P2 | `P2_regiao_movel_<ID>.geojson` | A região móvel rastreada em uma data |
 
+Os arquivos do evento `24340828` correspondentes a esses exports estão
+versionados em [`dados/estudo_caso_24340828/`](../dados/estudo_caso_24340828/)
+para que a conferência possa ser repetida. Foram preservados sem mudança de
+atributos ou de geometria em relação aos arquivos recebidos no histórico.
+
+| Arquivo | SHA-256 do arquivo histórico |
+| --- | --- |
+| `P1_componentes_24340828.geojson` | `7ae2d4baa3667a08a217983da08c44ddc94c97c21b5fa512cb2ca2db15296652` |
+| `P2_regiao_movel_24340828.geojson` | `433bb887ba184ca80b06824d524f451512adc87719956cda03d64704f7b18013` |
+
 No material de desenvolvimento também existem os arquivos
 `P1_patches_24340828.geojson` e `P2_regiao_movel_24340828 (1).geojson`, com
 nomes de atributos reorganizados. Eles representam as mesmas 57 datas e os
@@ -96,6 +106,14 @@ O script `scripts/validar_produtos.py` verifica, sem dependências externas:
 5. Correspondência de áreas e ranks entre P2 e P1;
 6. Monotonicidade das áreas acumuladas e deltas declarados;
 7. Lacunas temporais da série.
+
+Executar a partir da raiz do repositório:
+
+```bash
+python scripts/validar_produtos.py \
+  dados/estudo_caso_24340828/P1_componentes_24340828.geojson \
+  dados/estudo_caso_24340828/P2_regiao_movel_24340828.geojson
+```
 
 Esse verificador **não mede** validade topológica, não identifica fusões, não
 recalcula áreas na superfície terrestre e não avalia qualidade da detecção
