@@ -1,0 +1,9 @@
+# Arquivos gerados localmente pelo Python
+__pycache__/
+*.py[cod]
+
+# Ambientes e arquivos temporários de desenvolvimento
+.venv/
+.pytest_cache/
+.DS_Store
+Thumbs.db

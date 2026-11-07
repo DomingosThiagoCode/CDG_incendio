@@ -25,6 +25,29 @@ Região: Pantanal
 
 O código, entretanto, foi desenvolvido para permitir a troca do evento sem utilizar datas específicas ou regras exclusivas para esse incêndio.
 
+### Estado dos dados do estudo de caso
+
+Uma conferência dos GeoJSON exportados para o ID `24340828` encontrou:
+
+| Indicador | Resultado |
+| --- | ---: |
+| Período observado | 09/08/2020 a 09/10/2020 |
+| Datas com registros | 57 |
+| Registros componente-data (P1) | 978 |
+| Registros da região móvel (P2) | 57 |
+| Maior quantidade de componentes em uma data | 42 |
+| Área acumulada do evento na última observação | 984,61 km² |
+| Área da RM na última observação | 954,56 km² |
+
+**Atenção:** os 978 registros do P1 não representam 978 incêndios ou 978
+componentes com identidade permanente. São feições repetidas ao longo de datas
+distintas. Neste estudo de caso, a RM permaneceu como o maior componente em
+todas as 57 observações; isso não demonstra que a regra de continuidade terá o
+mesmo comportamento em outros incêndios.
+
+O inventário das versões dos produtos, limitações e resultados conferidos está
+em [docs/dados_e_validacao.md](docs/dados_e_validacao.md).
+
 ## Arquivo principal
 
 ```text
@@ -58,6 +81,21 @@ Depois:
 3. confira os resultados no Console e no mapa;
 4. abra a aba **Tasks**;
 5. execute os dois exports.
+
+### Conferir os GeoJSON exportados
+
+Após baixar os dois produtos do GEE, rode a verificação de estrutura e
+consistência numérica (Python 3, sem dependências externas):
+
+```bash
+python scripts/validar_produtos.py \
+  P1_componentes_24340828.geojson \
+  P2_regiao_movel_24340828.geojson
+```
+
+O script compara datas, ranks, áreas, quantidades de componentes e deltas. **Não
+faz validação topológica** nem substitui uma verificação da metodologia
+cartográfica.
 
 ## Funcionamento
 
@@ -297,7 +335,8 @@ Buracos não são contabilizados como novos componentes.
 
 ## Próximas etapas
 
-O desenvolvimento previsto inclui:
+O desenvolvimento previsto inclui (itens ainda não finalizados ou não
+reproduzidos integralmente neste repositório):
 
 - identificação persistente dos patches ao longo do tempo;
 - classificação de nascimento, continuidade e fusão;
@@ -311,24 +350,32 @@ O desenvolvimento previsto inclui:
 - métricas de deslocamento, direção e deformação;
 - integração com PostgreSQL/PostGIS.
 
-## Estrutura sugerida do repositório
+O estudo de caso também já possui, fora deste repositório, uma tabela de
+métricas diárias do P1 e um CSV de análise de trajetórias do P2. O procedimento
+que gerou todas essas tabelas ainda precisa ser consolidado e documentado para
+que terceiros possam reproduzi-lo.
+
+Veja o [roteiro de desenvolvimento](docs/roteiro.md), incluindo a frente
+experimental de atributos destinados a modelos de aprendizado de máquina.
+
+## Estrutura atual do repositório
 
 ```text
 CDG_incendio/
 │
-├── gee/
-│   └── gee_globfire_componentes_regiao_movel.js
-│
-├── qgis/
-│
-├── postgis/
-│
-├── dados/
-│
+├── gee_globfire_componentes_regiao_movel.js
+├── scripts/
+│   └── validar_produtos.py
+├── docs/
+│   ├── dados_e_validacao.md
+│   └── roteiro.md
 └── README.md
 ```
 
-Na versão atual, o script pode permanecer diretamente na raiz caso o projeto ainda contenha apenas o código do Earth Engine.
+O script do GEE foi mantido na raiz para preservar o caminho utilizado até agora.
+Os dados volumosos e os arquivos históricos de experimentação não são
+incorporados automaticamente ao repositório: antes de publicar um conjunto de
+dados, é necessário documentar sua origem, licença, versão e método de geração.
 
 ## Tecnologias
 
