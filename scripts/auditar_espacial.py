@@ -2,8 +2,11 @@
 """Auditoria espacial *diagnostica* de P1/P2, sem alterar GeoJSONs.
 
 O objetivo e localizar anomalias reproduziveis antes de definir tolerancias
-cientificas. Geometrias invalidas recebem make_valid() APENAS em memoria,
-para comparacoes diagnosticas. Nunca se substitui a geometria original.
+cientificas. Primeiro reprojeta os vertices originais para LAEA local,
+depois valida a geometria. make_valid() e aplicado somente em memoria e
+somente se a geometria ainda for invalida APOS a projecao. Nunca se
+substitui a geometria original. A validade planar em lon/lat e registrada
+separadamente, pois depende do sistema de coordenadas.
 
 Requer shapely e pyproj (ver requirements-auditoria.txt).
 """
@@ -44,6 +47,9 @@ class Feicao:
     motivo_invalidez: str | None
     geometria_diagnostica: object
     metrico: object | None = None
+    valida_metrica: bool | None = None
+    motivo_invalidez_metrica: str | None = None
+    reparo_apos_projecao: bool = False
 
 
 def ler(caminho: Path) -> list[Feicao]:
@@ -64,7 +70,7 @@ def ler(caminho: Path) -> list[Feicao]:
             geometria=geometria,
             valida=valida,
             motivo_invalidez=None if valida else explain_validity(geometria),
-            geometria_diagnostica=geometria if valida else make_valid(geometria),
+            geometria_diagnostica=geometria,
         ))
     return resultado
 
@@ -86,9 +92,14 @@ def preparar_metrico(p1: list[Feicao], p2: list[Feicao]) -> dict:
     for f in p1 + p2:
         # A reprojecao pode alterar ligeiramente intersecoes entre segmentos.
         # Validamos novamente a geometria projetada antes de fazer overlay.
-        convertido = shapely.transform(f.geometria_diagnostica,
+        convertido = shapely.transform(f.geometria,
                                        conversor.transform, interleaved=False)
-        f.metrico = convertido if convertido.is_valid else make_valid(convertido)
+        f.valida_metrica = bool(convertido.is_valid)
+        f.motivo_invalidez_metrica = (
+            None if f.valida_metrica else explain_validity(convertido))
+        f.reparo_apos_projecao = not f.valida_metrica
+        f.metrico = convertido if f.valida_metrica else make_valid(convertido)
+        f.geometria_diagnostica = f.metrico
     return {"proj": "LAEA local / WGS84", "centro_lon": round(lon0, 8),
             "centro_lat": round(lat0, 8), "limites_lonlat": [oeste, sul, leste, norte]}
 
@@ -98,24 +109,32 @@ def amostra(f: Feicao) -> dict:
 
 
 def resumo_geometrias(feicoes: list[Feicao]) -> dict:
+    if any(f.valida_metrica is None for f in feicoes):
+        raise ValueError("Projecao metrica deve ser preparada antes do resumo")
     invalidas = [f for f in feicoes if not f.valida]
     motivos = Counter(f.motivo_invalidez.split("[")[0] for f in invalidas)
     tipos = Counter(f.geometria.geom_type for f in feicoes)
-    repartidas = [f for f in invalidas
+    reparadas = [f for f in feicoes if f.reparo_apos_projecao]
+    repartidas = [f for f in reparadas
                   if f.geometria_diagnostica.geom_type == "MultiPolygon"]
     return {
         "total": len(feicoes),
         "tipos": dict(sorted(tipos.items())),
         "vazias": sum(f.geometria.is_empty for f in feicoes),
-        "invalidas": len(invalidas),
-        "tipos_invalidez": dict(sorted(motivos.items())),
-        "datas_com_invalidez": len({f.data for f in invalidas}),
-        "reparo_em_memoria_gerou_multipolygon": len(repartidas),
+        "invalidas_planas_em_lonlat": len(invalidas),
+        "tipos_invalidez_planar_lonlat": dict(sorted(motivos.items())),
+        "datas_com_invalidez_planar_lonlat": len({f.data for f in invalidas}),
+        "invalidas_apos_projecao_laea": len(reparadas),
+        "reparos_condicionais_apos_projecao": len(reparadas),
+        "reparos_geraram_multipolygon": len(repartidas),
         "max_partes_no_reparo": int(max(
             (shapely.get_num_geometries(f.geometria_diagnostica)
              for f in repartidas), default=1)),
-        "amostras_invalidas": [dict(amostra(f), motivo=f.motivo_invalidez)
-                              for f in invalidas[:12]],
+        "amostras_invalidas_planas_lonlat": [
+            dict(amostra(f), motivo=f.motivo_invalidez) for f in invalidas[:12]],
+        "amostras_invalidas_apos_projecao": [
+            dict(amostra(f), motivo=f.motivo_invalidez_metrica)
+            for f in reparadas[:12]],
     }
 
 
@@ -134,14 +153,14 @@ def resumo_areas(feicoes: list[Feicao]) -> dict:
         desvio = 100 * (calculada / declarada - 1)
         erros.append((abs(desvio), desvio, f, declarada, calculada))
     erros.sort(key=lambda item: item[0], reverse=True)
-    validos = [e[1] for e in erros if e[2].valida]
+    validos = [e[1] for e in erros if e[2].valida_metrica]
     return {
-        "metodo": "Area elipsoidal aproximada por projecao LAEA WGS84; geometria invalida reparada somente em memoria",
+        "metodo": "Area planar em LAEA local/WGS84; valida apos projetar, com reparo condicional em memoria",
         "mediana_desvio_pct_validos": round(statistics.median(validos), 6) if validos else None,
         "desvios_absolutos_acima_1pct": sum(e[0] > 1 for e in erros),
         "desvios_absolutos_acima_5pct": sum(e[0] > 5 for e in erros),
         "amostras_maiores_desvios": [
-            dict(amostra(e[2]), geometria_original_valida=e[2].valida,
+            dict(amostra(e[2]), geometria_laea_valida=e[2].valida_metrica,
                  area_atributo_km2=round(e[3], 6),
                  area_calculada_km2=round(e[4], 6),
                  desvio_pct=round(e[1], 4)) for e in erros[:12]
@@ -181,7 +200,7 @@ def relacao_p2_p1(grupos_p1: dict, p2: list[Feicao]) -> dict:
     return {
         "total_p2": len(p2),
         "coincidencia_estrita_coordenadas": exatamente_iguais,
-        "equivalentes_topologicamente_apos_make_valid": equivalentes,
+        "equivalentes_topologicamente_apos_projecao": equivalentes,
         "limiar_diferenca_relativa_diagnostica": LIMIAR_DIFERENCA_RELATIVA,
         "maior_diferenca_relativa": maiores_frac[0][0] if maiores_frac else None,
         "divergencias": divergencias[:30],
@@ -310,9 +329,11 @@ def main() -> int:
             args.saida_json.write_text(json.dumps(dados, ensure_ascii=False, indent=2) + "\n",
                                        encoding="utf-8")
         resumo = {
-            "p1_invalidos": dados["p1"]["invalidas"],
-            "p2_invalidos": dados["p2"]["invalidas"],
-            "p2_equivalentes_a_p1": dados["p2_versus_p1"]["equivalentes_topologicamente_apos_make_valid"],
+            "p1_invalidos_planos_lonlat": dados["p1"]["invalidas_planas_em_lonlat"],
+            "p2_invalidos_planos_lonlat": dados["p2"]["invalidas_planas_em_lonlat"],
+            "p1_invalidos_apos_projecao_laea": dados["p1"]["invalidas_apos_projecao_laea"],
+            "p2_invalidos_apos_projecao_laea": dados["p2"]["invalidas_apos_projecao_laea"],
+            "p2_equivalentes_a_p1": dados["p2_versus_p1"]["equivalentes_topologicamente_apos_projecao"],
             "p1_pares_sobrepostos": dados["sobreposicoes_p1"]["pares_com_sobreposicao_de_area"],
             "intervalos_com_perda_evento": len(dados["evolucao"]["area_acumulada_evento_nao_contida_na_observacao_seguinte"]),
             "intervalos_com_perda_rm": len(dados["evolucao"]["area_acumulada_rm_nao_contida_na_observacao_seguinte"]),
