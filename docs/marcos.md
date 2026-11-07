@@ -16,16 +16,22 @@ sem tratar trabalhos exploratórios como resultados validados do estudo final.
    consistência numérica e temporal verificada por script Python. Os dois
    GeoJSON originais usados nessa verificação foram guardados em
    `dados/estudo_caso_24340828/`.
-5. **Etapa atual:** passar da geração de produtos para uma **especificação
-   verificável de testes espaciais e automações**. Resultados científicos dos
-   métodos de região móvel e das métricas de paisagem ainda estão em análise.
+5. **Auditoria espacial (Etapa 1):** verificação da validade geométrica após
+   reprojeção LAEA, comparação P1/P2, detecção de sobreposições e candidatos
+   a fusão, testes sintéticos e comparação de regularização. Os originais
+   permaneceram intactos; o resultado está em
+   [auditoria_espacial_24340828.md](auditoria_espacial_24340828.md).
+6. **Próxima etapa:** definir fórmulas, critérios de conectividade e testes
+   das métricas de paisagem; implementar e comparar os métodos de região
+   móvel depois. Resultados científicos finais ainda estão em análise.
 
 ## O que significa “P1/P2 prontos”
 
 Os arquivos existem e passaram em testes de estrutura, correspondência de
-datas, contagens, áreas declaradas e ranks. Isso **não prova** que todas as
-geometrias são válidas, que a associação espacial entre datas é correta, nem
-que o algoritmo se comporta bem quando o ID do incêndio é alterado.
+datas, contagens, áreas declaradas, ranks e relações espaciais. Todas as
+geometrias passaram na verificação de validade após reprojeção para LAEA
+local neste estudo de caso. Isso **não prova** exatidão cartográfica nem
+garante que o algoritmo se comporte bem quando o ID é alterado.
 
 P1 é um conjunto de **componentes por data**, não um cadastro de patches com
 identidade temporal persistente. P2 contém a **região móvel rastreada** em cada
@@ -44,6 +50,8 @@ instantânea da frente ativa de fogo.
 | Generalização | Novo ID GlobFire com outras datas e números de patches | Execução sem condições especiais para o evento 24340828 |
 | Reprodutibilidade | Nova exportação GEE com parâmetros e fonte fixados | Diferenças registradas e justificadas |
 
-Esses testes são **requisitos propostos**, ainda não implementados integralmente.
-O script atual cobre apenas a primeira linha e parte do diagnóstico temporal.
+Esses testes representam uma **especificação incremental**. O validador
+estrutural, a auditoria espacial e os testes sintéticos cobrem as primeiras
+etapas, mas conectividade, rastreamento independente, generalização para
+outros IDs e reexecução do GEE ainda não foram verificados integralmente.
 Consulte [roteiro.md](roteiro.md) para a ordem das próximas etapas.

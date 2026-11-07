@@ -119,8 +119,13 @@ python -m unittest discover -s tests -v
 
 Resultados, ressalvas e questões metodológicas estão em
 [docs/auditoria_espacial_24340828.md](docs/auditoria_espacial_24340828.md).
-A auditoria usa reparos de geometria apenas **em memória**, para fins
-diagnósticos; os GeoJSON originais permanecem inalterados.
+A auditoria **projeta primeiro** os vértices originais para LAEA local, valida
+nesse CRS e só utiliza reparos de geometria **em memória e condicionalmente**.
+Para este estudo de caso, não houve geometrias inválidas após a reprojeção.
+O [experimento de sensibilidade à regularização](docs/experimento_regularizacao_24340828.md)
+compara o original, `make_valid()` e `buffer(0)`. Os GeoJSON originais permanecem
+inalterados. A Etapa 1 está concluída; métricas e regras de conectividade
+serão abordadas na Etapa 2.
 
 ## Funcionamento
 

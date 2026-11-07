@@ -1,0 +1,691 @@
+{
+  "objetivo": "Sensibilidade de medidas geometricas ao metodo de regularizacao",
+  "aviso": "Proposta diagnostica, nao criterio definitivo de conectividade",
+  "shapely": "2.2.0",
+  "pyproj": "3.8.0",
+  "crs_metricas": "LAEA local sobre WGS84",
+  "centro_lonlat": [
+    -57.73985836,
+    -16.60208267
+  ],
+  "validade_por_crs": {
+    "p1": {
+      "origem_lonlat": 172,
+      "laea_local": 0,
+      "utm_21s_epsg32721": 0,
+      "cea_global_epsg6933": 172
+    },
+    "p2": {
+      "origem_lonlat": 55,
+      "laea_local": 0,
+      "utm_21s_epsg32721": 0,
+      "cea_global_epsg6933": 55
+    }
+  },
+  "p1": {
+    "total": 978,
+    "invalidos_original": 172,
+    "fator_calibracao_area_entre_sistemas": 0.9966255117,
+    "comparacao": {
+      "original": {
+        "validas": 806,
+        "validas_apos_projecao": 978,
+        "reparos_adicionais_apos_projecao": 0,
+        "vazias": 0,
+        "partes_poligonais_total": 978,
+        "feicoes_multipartes": 0,
+        "feicoes_erro_area_ajustado_acima_1pct": 0,
+        "erro_absoluto_area_ajustado_pct": {
+          "n": 978,
+          "mediana": 0.0008574,
+          "p95": 0.0026333,
+          "max": 0.0041886
+        },
+        "erro_absoluto_area_ajustado_invalidos_pct": {
+          "n": 172,
+          "mediana": 0.00035,
+          "p95": 0.0006706,
+          "max": 0.0010543
+        }
+      },
+      "make_valid": {
+        "validas": 978,
+        "validas_apos_projecao": 978,
+        "reparos_adicionais_apos_projecao": 51,
+        "vazias": 0,
+        "partes_poligonais_total": 1333,
+        "feicoes_multipartes": 51,
+        "feicoes_erro_area_ajustado_acima_1pct": 0,
+        "erro_absoluto_area_ajustado_pct": {
+          "n": 978,
+          "mediana": 0.0008574,
+          "p95": 0.0026333,
+          "max": 0.0041886
+        },
+        "erro_absoluto_area_ajustado_invalidos_pct": {
+          "n": 172,
+          "mediana": 0.0003461,
+          "p95": 0.000655,
+          "max": 0.0009707
+        }
+      },
+      "buffer_0": {
+        "validas": 978,
+        "validas_apos_projecao": 978,
+        "reparos_adicionais_apos_projecao": 51,
+        "vazias": 0,
+        "partes_poligonais_total": 978,
+        "feicoes_multipartes": 0,
+        "feicoes_erro_area_ajustado_acima_1pct": 0,
+        "erro_absoluto_area_ajustado_pct": {
+          "n": 978,
+          "mediana": 0.0008574,
+          "p95": 0.0026333,
+          "max": 0.0041886
+        },
+        "erro_absoluto_area_ajustado_invalidos_pct": {
+          "n": 172,
+          "mediana": 0.000343,
+          "p95": 0.0006657,
+          "max": 0.0009673
+        }
+      },
+      "make_valid_apos_projecao": {
+        "validas": 978,
+        "validas_apos_projecao": 978,
+        "reparos_adicionais_apos_projecao": 0,
+        "vazias": 0,
+        "partes_poligonais_total": 978,
+        "feicoes_multipartes": 0,
+        "feicoes_erro_area_ajustado_acima_1pct": 0,
+        "erro_absoluto_area_ajustado_pct": {
+          "n": 978,
+          "mediana": 0.0008574,
+          "p95": 0.0026333,
+          "max": 0.0041886
+        },
+        "erro_absoluto_area_ajustado_invalidos_pct": {
+          "n": 172,
+          "mediana": 0.00035,
+          "p95": 0.0006706,
+          "max": 0.0010543
+        }
+      }
+    },
+    "variacao_perimetro_invalidos_pct": {
+      "make_valid": {
+        "n": 172,
+        "mediana": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "buffer_0": {
+        "n": 172,
+        "mediana": -3.6716487,
+        "p95": -0.0125623,
+        "max": -0.0042354
+      },
+      "make_valid_valor_absoluto": {
+        "n": 172,
+        "mediana": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      }
+    },
+    "variacao_area_invalidos_pct": {
+      "make_valid": {
+        "n": 172,
+        "mediana": 4.44e-05,
+        "p95": 0.0001955,
+        "max": 0.0001955
+      },
+      "buffer_0": {
+        "n": 172,
+        "mediana": 4.6e-05,
+        "p95": 0.0002062,
+        "max": 0.0002062
+      },
+      "make_valid_valor_absoluto": {
+        "n": 172,
+        "mediana": 4.44e-05,
+        "p95": 0.0001955,
+        "max": 0.0001955
+      },
+      "buffer_0_valor_absoluto": {
+        "n": 172,
+        "mediana": 4.6e-05,
+        "p95": 0.0002062,
+        "max": 0.0002062
+      }
+    },
+    "variacao_shape_index_make_valid_invalidos_pct": {
+      "n": 172,
+      "mediana": -2.22e-05,
+      "p95": -1e-07,
+      "max": -0.0
+    },
+    "perda_buffer_versus_make_valid_pct": {
+      "n": 172,
+      "mediana": -3.1e-06,
+      "p95": -0.0,
+      "max": -0.0
+    },
+    "deslocamento_centroide_make_valid_m": {
+      "n": 172,
+      "mediana": 0.0006998,
+      "p95": 0.0036873,
+      "max": 0.0048678
+    },
+    "piores_perdas_buffer_0": [
+      {
+        "data": "2020-09-06",
+        "rank": 2,
+        "perda_area_pct": -0.0,
+        "area_make_valid_km2": 59.89955,
+        "n_partes_make_valid": 1,
+        "n_partes_buffer_0": 1
+      },
+      {
+        "data": "2020-09-05",
+        "rank": 2,
+        "perda_area_pct": -0.0,
+        "area_make_valid_km2": 40.0037,
+        "n_partes_make_valid": 1,
+        "n_partes_buffer_0": 1
+      },
+      {
+        "data": "2020-09-04",
+        "rank": 2,
+        "perda_area_pct": -0.0,
+        "area_make_valid_km2": 31.4462,
+        "n_partes_make_valid": 1,
+        "n_partes_buffer_0": 1
+      },
+      {
+        "data": "2020-09-03",
+        "rank": 2,
+        "perda_area_pct": -0.0,
+        "area_make_valid_km2": 26.95463,
+        "n_partes_make_valid": 1,
+        "n_partes_buffer_0": 1
+      },
+      {
+        "data": "2020-09-02",
+        "rank": 2,
+        "perda_area_pct": -0.0,
+        "area_make_valid_km2": 26.31294,
+        "n_partes_make_valid": 1,
+        "n_partes_buffer_0": 1
+      },
+      {
+        "data": "2020-09-01",
+        "rank": 2,
+        "perda_area_pct": -0.0,
+        "area_make_valid_km2": 25.45725,
+        "n_partes_make_valid": 1,
+        "n_partes_buffer_0": 1
+      },
+      {
+        "data": "2020-08-31",
+        "rank": 2,
+        "perda_area_pct": -0.0,
+        "area_make_valid_km2": 22.2486,
+        "n_partes_make_valid": 1,
+        "n_partes_buffer_0": 1
+      },
+      {
+        "data": "2020-08-30",
+        "rank": 2,
+        "perda_area_pct": -0.0,
+        "area_make_valid_km2": 21.39277,
+        "n_partes_make_valid": 1,
+        "n_partes_buffer_0": 1
+      },
+      {
+        "data": "2020-08-29",
+        "rank": 2,
+        "perda_area_pct": -0.0,
+        "area_make_valid_km2": 17.32829,
+        "n_partes_make_valid": 1,
+        "n_partes_buffer_0": 1
+      },
+      {
+        "data": "2020-08-27",
+        "rank": 2,
+        "perda_area_pct": -0.0,
+        "area_make_valid_km2": 14.76152,
+        "n_partes_make_valid": 1,
+        "n_partes_buffer_0": 1
+      },
+      {
+        "data": "2020-08-28",
+        "rank": 2,
+        "perda_area_pct": -0.0,
+        "area_make_valid_km2": 14.76152,
+        "n_partes_make_valid": 1,
+        "n_partes_buffer_0": 1
+      },
+      {
+        "data": "2020-08-26",
+        "rank": 2,
+        "perda_area_pct": -0.0,
+        "area_make_valid_km2": 12.62256,
+        "n_partes_make_valid": 1,
+        "n_partes_buffer_0": 1
+      }
+    ],
+    "piores_erros_area_original": [
+      {
+        "data": "2020-08-11",
+        "rank": 1,
+        "erro_area_original_pct": -0.0011
+      },
+      {
+        "data": "2020-08-12",
+        "rank": 1,
+        "erro_area_original_pct": -0.001
+      },
+      {
+        "data": "2020-08-13",
+        "rank": 1,
+        "erro_area_original_pct": -0.001
+      },
+      {
+        "data": "2020-08-14",
+        "rank": 1,
+        "erro_area_original_pct": -0.0009
+      },
+      {
+        "data": "2020-09-05",
+        "rank": 1,
+        "erro_area_original_pct": -0.0008
+      },
+      {
+        "data": "2020-09-06",
+        "rank": 1,
+        "erro_area_original_pct": -0.0008
+      },
+      {
+        "data": "2020-09-07",
+        "rank": 1,
+        "erro_area_original_pct": -0.0008
+      },
+      {
+        "data": "2020-09-08",
+        "rank": 1,
+        "erro_area_original_pct": -0.0007
+      },
+      {
+        "data": "2020-08-15",
+        "rank": 1,
+        "erro_area_original_pct": -0.0007
+      },
+      {
+        "data": "2020-09-04",
+        "rank": 1,
+        "erro_area_original_pct": -0.0007
+      },
+      {
+        "data": "2020-09-09",
+        "rank": 1,
+        "erro_area_original_pct": -0.0007
+      },
+      {
+        "data": "2020-09-10",
+        "rank": 1,
+        "erro_area_original_pct": -0.0006
+      }
+    ],
+    "maior_impacto_diario_buffer_0": {
+      "data": "2020-08-09",
+      "area_make_valid_km2": 1.924998,
+      "area_buffer_0_km2": 1.924998,
+      "perda_buffer_0_km2": 0.0,
+      "perda_buffer_0_pct": 0.0,
+      "n_registros": 2,
+      "n_partes_make_valid": 2
+    },
+    "ultima_data": {
+      "data": "2020-10-09",
+      "area_make_valid_km2": 981.291279,
+      "area_buffer_0_km2": 981.291294,
+      "perda_buffer_0_km2": -1.5e-05,
+      "perda_buffer_0_pct": -2e-06,
+      "n_registros": 15,
+      "n_partes_make_valid": 26
+    }
+  },
+  "p2": {
+    "total": 57,
+    "invalidos_original": 55,
+    "fator_calibracao_area_entre_sistemas": 0.9966255117,
+    "comparacao": {
+      "original": {
+        "validas": 2,
+        "validas_apos_projecao": 57,
+        "reparos_adicionais_apos_projecao": 0,
+        "vazias": 0,
+        "partes_poligonais_total": 57,
+        "feicoes_multipartes": 0,
+        "feicoes_erro_area_ajustado_acima_1pct": 0,
+        "erro_absoluto_area_ajustado_pct": {
+          "n": 57,
+          "mediana": 0.0001488,
+          "p95": 0.0010153,
+          "max": 0.001154
+        },
+        "erro_absoluto_area_ajustado_invalidos_pct": {
+          "n": 55,
+          "mediana": 0.0001472,
+          "p95": 0.0008757,
+          "max": 0.0010543
+        }
+      },
+      "make_valid": {
+        "validas": 57,
+        "validas_apos_projecao": 57,
+        "reparos_adicionais_apos_projecao": 51,
+        "vazias": 0,
+        "partes_poligonais_total": 412,
+        "feicoes_multipartes": 51,
+        "feicoes_erro_area_ajustado_acima_1pct": 0,
+        "erro_absoluto_area_ajustado_pct": {
+          "n": 57,
+          "mediana": 0.0001055,
+          "p95": 0.0009485,
+          "max": 0.001154
+        },
+        "erro_absoluto_area_ajustado_invalidos_pct": {
+          "n": 55,
+          "mediana": 0.000101,
+          "p95": 0.0008315,
+          "max": 0.0009707
+        }
+      },
+      "buffer_0": {
+        "validas": 57,
+        "validas_apos_projecao": 57,
+        "reparos_adicionais_apos_projecao": 51,
+        "vazias": 0,
+        "partes_poligonais_total": 57,
+        "feicoes_multipartes": 0,
+        "feicoes_erro_area_ajustado_acima_1pct": 0,
+        "erro_absoluto_area_ajustado_pct": {
+          "n": 57,
+          "mediana": 0.0001036,
+          "p95": 0.0009457,
+          "max": 0.001154
+        },
+        "erro_absoluto_area_ajustado_invalidos_pct": {
+          "n": 55,
+          "mediana": 9.96e-05,
+          "p95": 0.0008295,
+          "max": 0.0009673
+        }
+      },
+      "make_valid_apos_projecao": {
+        "validas": 57,
+        "validas_apos_projecao": 57,
+        "reparos_adicionais_apos_projecao": 0,
+        "vazias": 0,
+        "partes_poligonais_total": 57,
+        "feicoes_multipartes": 0,
+        "feicoes_erro_area_ajustado_acima_1pct": 0,
+        "erro_absoluto_area_ajustado_pct": {
+          "n": 57,
+          "mediana": 0.0001488,
+          "p95": 0.0010153,
+          "max": 0.001154
+        },
+        "erro_absoluto_area_ajustado_invalidos_pct": {
+          "n": 55,
+          "mediana": 0.0001472,
+          "p95": 0.0008757,
+          "max": 0.0010543
+        }
+      }
+    },
+    "variacao_perimetro_invalidos_pct": {
+      "make_valid": {
+        "n": 55,
+        "mediana": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "buffer_0": {
+        "n": 55,
+        "mediana": -1.7142886,
+        "p95": -1.2504768,
+        "max": -0.9102155
+      },
+      "make_valid_valor_absoluto": {
+        "n": 55,
+        "mediana": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      }
+    },
+    "variacao_area_invalidos_pct": {
+      "make_valid": {
+        "n": 55,
+        "mediana": 4.46e-05,
+        "p95": 6.3e-05,
+        "max": 0.0001245
+      },
+      "buffer_0": {
+        "n": 55,
+        "mediana": 4.62e-05,
+        "p95": 6.57e-05,
+        "max": 0.0001254
+      },
+      "make_valid_valor_absoluto": {
+        "n": 55,
+        "mediana": 4.46e-05,
+        "p95": 6.3e-05,
+        "max": 0.0001245
+      },
+      "buffer_0_valor_absoluto": {
+        "n": 55,
+        "mediana": 4.62e-05,
+        "p95": 6.57e-05,
+        "max": 0.0001254
+      }
+    },
+    "variacao_shape_index_make_valid_invalidos_pct": {
+      "n": 55,
+      "mediana": -2.23e-05,
+      "p95": -1.5e-05,
+      "max": -1.3e-05
+    },
+    "perda_buffer_versus_make_valid_pct": {
+      "n": 55,
+      "mediana": -1.6e-06,
+      "p95": -1e-06,
+      "max": -8e-07
+    },
+    "deslocamento_centroide_make_valid_m": {
+      "n": 55,
+      "mediana": 0.0014496,
+      "p95": 0.0043768,
+      "max": 0.0048678
+    },
+    "piores_perdas_buffer_0": [
+      {
+        "data": "2020-08-11",
+        "rank": 1,
+        "perda_area_pct": -0.0,
+        "area_make_valid_km2": 12.62226,
+        "n_partes_make_valid": 1,
+        "n_partes_buffer_0": 1
+      },
+      {
+        "data": "2020-09-06",
+        "rank": 1,
+        "perda_area_pct": -0.0,
+        "area_make_valid_km2": 545.73011,
+        "n_partes_make_valid": 6,
+        "n_partes_buffer_0": 1
+      },
+      {
+        "data": "2020-08-23",
+        "rank": 1,
+        "perda_area_pct": -0.0,
+        "area_make_valid_km2": 236.17725,
+        "n_partes_make_valid": 4,
+        "n_partes_buffer_0": 1
+      },
+      {
+        "data": "2020-08-22",
+        "rank": 1,
+        "perda_area_pct": -0.0,
+        "area_make_valid_km2": 234.67994,
+        "n_partes_make_valid": 4,
+        "n_partes_buffer_0": 1
+      },
+      {
+        "data": "2020-09-05",
+        "rank": 1,
+        "perda_area_pct": -0.0,
+        "area_make_valid_km2": 519.84531,
+        "n_partes_make_valid": 6,
+        "n_partes_buffer_0": 1
+      },
+      {
+        "data": "2020-08-21",
+        "rank": 1,
+        "perda_area_pct": -0.0,
+        "area_make_valid_km2": 228.26161,
+        "n_partes_make_valid": 4,
+        "n_partes_buffer_0": 1
+      },
+      {
+        "data": "2020-09-07",
+        "rank": 1,
+        "perda_area_pct": -0.0,
+        "area_make_valid_km2": 555.35873,
+        "n_partes_make_valid": 6,
+        "n_partes_buffer_0": 1
+      },
+      {
+        "data": "2020-09-10",
+        "rank": 1,
+        "perda_area_pct": -0.0,
+        "area_make_valid_km2": 634.72521,
+        "n_partes_make_valid": 6,
+        "n_partes_buffer_0": 1
+      },
+      {
+        "data": "2020-08-25",
+        "rank": 1,
+        "perda_area_pct": -0.0,
+        "area_make_valid_km2": 278.10609,
+        "n_partes_make_valid": 5,
+        "n_partes_buffer_0": 1
+      },
+      {
+        "data": "2020-08-20",
+        "rank": 1,
+        "perda_area_pct": -0.0,
+        "area_make_valid_km2": 206.01279,
+        "n_partes_make_valid": 4,
+        "n_partes_buffer_0": 1
+      },
+      {
+        "data": "2020-09-09",
+        "rank": 1,
+        "perda_area_pct": -0.0,
+        "area_make_valid_km2": 611.62272,
+        "n_partes_make_valid": 6,
+        "n_partes_buffer_0": 1
+      },
+      {
+        "data": "2020-08-19",
+        "rank": 1,
+        "perda_area_pct": -0.0,
+        "area_make_valid_km2": 204.08765,
+        "n_partes_make_valid": 4,
+        "n_partes_buffer_0": 1
+      }
+    ],
+    "piores_erros_area_original": [
+      {
+        "data": "2020-08-11",
+        "rank": 1,
+        "erro_area_original_pct": -0.0011
+      },
+      {
+        "data": "2020-08-12",
+        "rank": 1,
+        "erro_area_original_pct": -0.001
+      },
+      {
+        "data": "2020-08-13",
+        "rank": 1,
+        "erro_area_original_pct": -0.001
+      },
+      {
+        "data": "2020-08-14",
+        "rank": 1,
+        "erro_area_original_pct": -0.0009
+      },
+      {
+        "data": "2020-09-05",
+        "rank": 1,
+        "erro_area_original_pct": -0.0008
+      },
+      {
+        "data": "2020-09-06",
+        "rank": 1,
+        "erro_area_original_pct": -0.0008
+      },
+      {
+        "data": "2020-09-07",
+        "rank": 1,
+        "erro_area_original_pct": -0.0008
+      },
+      {
+        "data": "2020-09-08",
+        "rank": 1,
+        "erro_area_original_pct": -0.0007
+      },
+      {
+        "data": "2020-08-15",
+        "rank": 1,
+        "erro_area_original_pct": -0.0007
+      },
+      {
+        "data": "2020-09-04",
+        "rank": 1,
+        "erro_area_original_pct": -0.0007
+      },
+      {
+        "data": "2020-09-09",
+        "rank": 1,
+        "erro_area_original_pct": -0.0007
+      },
+      {
+        "data": "2020-09-10",
+        "rank": 1,
+        "erro_area_original_pct": -0.0006
+      }
+    ],
+    "maior_impacto_diario_buffer_0": {
+      "data": "2020-08-09",
+      "area_make_valid_km2": 1.497513,
+      "area_buffer_0_km2": 1.497513,
+      "perda_buffer_0_km2": 0.0,
+      "perda_buffer_0_pct": 0.0,
+      "n_registros": 1,
+      "n_partes_make_valid": 1
+    },
+    "ultima_data": {
+      "data": "2020-10-09",
+      "area_make_valid_km2": 951.341423,
+      "area_buffer_0_km2": 951.341438,
+      "perda_buffer_0_km2": -1.5e-05,
+      "perda_buffer_0_pct": -2e-06,
+      "n_registros": 1,
+      "n_partes_make_valid": 12
+    }
+  }
+}
