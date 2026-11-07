@@ -103,6 +103,25 @@ O script compara datas, ranks, áreas, quantidades de componentes e deltas. **N�
 faz validação topológica** nem substitui uma verificação da metodologia
 cartográfica.
 
+### Auditoria espacial exploratória (etapa 1)
+
+Uma auditoria geométrica **separada**, que não modifica P1/P2, pode ser
+reproduzida com Python 3, Shapely e PyProj:
+
+```bash
+python -m pip install -r requirements-auditoria.txt
+python scripts/auditar_espacial.py \
+  dados/estudo_caso_24340828/P1_componentes_24340828.geojson \
+  dados/estudo_caso_24340828/P2_regiao_movel_24340828.geojson \
+  --saida-json resultados/auditoria_espacial_24340828.json
+python -m unittest discover -s tests -v
+```
+
+Resultados, ressalvas e questões metodológicas estão em
+[docs/auditoria_espacial_24340828.md](docs/auditoria_espacial_24340828.md).
+A auditoria usa reparos de geometria apenas **em memória**, para fins
+diagnósticos; os GeoJSON originais permanecem inalterados.
+
 ## Funcionamento
 
 O processamento realiza automaticamente as seguintes etapas:
