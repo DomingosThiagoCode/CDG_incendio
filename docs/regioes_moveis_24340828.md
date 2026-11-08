@@ -1,5 +1,17 @@
 # Etapa 4 — trajetórias representativas e diagnóstico da região móvel
 
+
+> **Atualização metodológica, 08/11/2026.** A Etapa 4 passou a utilizar
+> **Python como implementação canônica**. O artigo de Barbosa e Oliveira
+> (2022), disponível integralmente no projeto, foi lido: ele contempla
+> trajetórias representativas e diferenças geométricas entre regiões,
+> incluindo áreas acrescentadas e reduzidas. A nova rotina Python
+> [consolidar_tr_igt.py](../scripts/consolidar_tr_igt.py) centraliza a
+> execução, compara resultados TR/IGT e produz componentes de redução.
+> Os SQLs ficam **arquivados como referência**, sem dependência operacional
+> nem afirmação de que foram executados no PostGIS. Consulte
+> [fechamento da Etapa 4](fechamento_etapa4.md).
+
 **Evento:** GlobFire v2, `24340828` (Pantanal, 2020).
 
 **Período:** 09/08 a 09/10/2020, **57 observações** e **56 transições**.

@@ -1,3 +1,9 @@
+> **ARQUIVADO EM 08/11/2026:** esta documentação descreve uma
+> implementação SQL histórica que **não foi executada em um servidor PostGIS**
+> neste projeto. O método canônico agora está em Python; ver
+> [ARQUIVADO.md](ARQUIVADO.md) e
+> [fechamento científico](../docs/fechamento_etapa4.md).
+>
 # SQL/PostGIS — métodos TR e IGT (generalização multi-ID)
 
 Dois descritores complementares da **região móvel P2** de área queimada
