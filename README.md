@@ -509,6 +509,30 @@ automática via interface é uma extensão futura.
 [produtos versionados](resultados/etapa5/). A análise de fases pela curva
 acumulada é descritiva e não infere causalidade física do incêndio.
 
+## Etapa 5: síntese integrada do incêndio
+
+A implementação principal está em [`scripts/integrar_etapa5.py`](scripts/integrar_etapa5.py), com
+[metodologia](docs/etapa5_metodologia.md) e
+[relatório do Pantanal](docs/analise_integrada_24340828.md).
+Ela combina as métricas P1, os eventos topológicos da Etapa 3 e os
+descritores de P2: **TR (cinco trajetórias de Priscila Backes de Oliveira)**
+e **IGT (diferenças geométricas, seguindo o trabalho de Barbosa e Oliveira, 2022)**.
+A implementação não substitui os conceitos científicos desses métodos.
+
+O incremento geométrico do P2 é decomposto entre área antes queimada fora da
+componente principal e área realmente nova do evento, evitando confundir fusões
+com crescimento inédito da área detectada.
+
+```bash
+python -m pip install -r requirements-auditoria.txt
+python scripts/integrar_etapa5.py --id 24340828 --saida resultados/etapa5
+python -m unittest discover -s tests -v
+```
+
+Os CSVs, mapas, gráficos e um relatório são versionados em
+[`resultados/etapa5/`](resultados/etapa5/). A segmentação temporal em
+fases é **exploratória**, não validação causal do comportamento do fogo.
+
 ## Próximas etapas
 
 **Etapa 4 (Python):** executar a rotina integrada e conferir as saídas de comparação TR × IGT. A validação de um segundo ID e a análise científica integrada continuam no backlog. PostGIS não é mais dependência.

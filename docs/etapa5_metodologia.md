@@ -2,6 +2,12 @@
 
 **Estudo de caso:** Pantanal (GlobFire v2; ID 24340828), 09/08/2020 a 09/10/2020.
 
+**Identidade dos métodos:** TR mantém a formulação de Priscila Backes de Oliveira
+(cinco trajetórias representativas: N, S, E, O e centroide). IGT é o tratamento das
+diferenças geométricas entre observações conforme a abordagem de Barbosa e
+Oliveira (2022). O cruzamento das duas saídas não altera nem combina as
+formulações originais em um novo método.
+
 ## Objetivo
 
 Transformar os produtos computacionais das etapas anteriores numa interpretação
