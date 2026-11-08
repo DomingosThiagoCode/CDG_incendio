@@ -21,10 +21,10 @@ jobs:
           python-version: "3.11"
           cache: pip
           cache-dependency-path: requirements-auditoria.txt
-      - name: Instalar dependencias e rodar testes da Etapa 6
+      - name: Instalar dependencias e rodar todos os testes do projeto
         run: |
           python -m pip install -r requirements-auditoria.txt
-          python -m unittest discover -s tests -p 'test_validar_cientificamente_etapa6.py' -v
+          python -m unittest discover -s tests -v
       - name: Executar auditoria e preparar dossie
         run: |
           python scripts/validar_cientificamente_etapa6.py --id 24340828 --saida resultados/etapa6
