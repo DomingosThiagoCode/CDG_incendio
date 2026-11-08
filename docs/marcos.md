@@ -36,10 +36,20 @@ sem tratar trabalhos exploratórios como resultados validados do estudo final.
    convergências para revisão no QGIS. Interpretação **geométrica**, não
    confirmação de fusões físicas; consultar
    [linhagens_patches_24340828.md](linhagens_patches_24340828.md).
-8. **Etapa seguinte:** reproduzir a metodologia da Major de forma
-   independente, implementar a do Coronel e comparar as regiões móveis,
-   enquanto as questões de conectividade e causalidade são debatidas na
-   orientação. Resultados científicos finais ainda estão em análise.
+8. **Trajetórias da região móvel (Etapa 4):** implementada a versão
+   reprodutível dos cinco feixes N/S/E/O/centroide da Major e indicadores
+   geométricos do polígono P2 integral. A seleção independente por
+   sobreposição reproduziu os **57 ranks**, com **56** transições,
+   **285** pontos e **280** segmentos. As alterações entre centroides somam
+   aproximadamente **34,072 km**, mas são mudanças de uma geometria
+   acumulada, e não o avanço direto da frente do fogo. A documentação
+   distingue o comparador interno de uma metodologia própria do Coronel,
+   que **ainda precisa de especificação**. Consulte
+   [regioes_moveis_24340828.md](regioes_moveis_24340828.md).
+9. **Etapa seguinte:** confirmar o método do Coronel e os indicadores
+   comparáveis em reunião de orientação; validar contra o SQL histórico
+   da Major e discutir escala da fonte, conectividade e causalidade.
+   Conclusões científicas finais ainda estão em análise.
 
 ## O que significa “P1/P2 prontos”
 
