@@ -36,9 +36,14 @@ reutilização a testar.
   preservando o P1 original; não equiparar diretamente a 8 vizinhos raster.
 - [ ] Delimitar indicadores adicionais de fragmentação/conectividade e avaliar
   a interpretação da distância ao vizinho em presença de contatos pontuais.
-- [ ] Reconstruir identidades de patches entre observações.
-- [ ] Classificar surgimento, continuidade e fusão por operações espaciais.
-- [ ] Interpretar mudanças expressivas, incluindo 10–12/09/2020.
+- [x] Reconstruir **linhagens conservadoras** entre observações por
+  interseção de área, sem substituir a identidade local dos patches no P1.
+- [x] Classificar correspondências 1→1, convergências, divergências,
+  reorganizações e surgimentos sem sobreposição em grafo bipartido.
+- [x] Investigar 10–12/09/2020: identificada convergência 21→1 na
+  transição 10→11/09, com saídas e camada específica para revisão no QGIS.
+- [ ] Obter interpretação científica externa dos eventos geométricos,
+  sobretudo quando coincidirem com contatos pontuais e novas detecções.
 
 ## Etapa C — regiões móveis (patch rastreado)
 

@@ -157,6 +157,31 @@ O experimento **não equivale diretamente à conectividade raster 8** e
 limitações e referências em
 [docs/metricas_paisagem_24340828.md](docs/metricas_paisagem_24340828.md).
 
+### Continuidade temporal dos patches (etapa 3)
+
+O módulo da Etapa 3 reconstrói um **grafo de interseções por área** entre
+patches de observações consecutivas do P1. Classifica correspondências
+1→1, convergências N→1, divisões 1→N, reorganizações e surgimentos sem
+predecessor. Usa sobreposição de área maior que **1 m²** como tolerância
+numérica; contatos apenas por vértice ou borda não definem vínculos.
+
+```bash
+python scripts/rastrear_linhagens_patches.py \
+  dados/estudo_caso_24340828/P1_componentes_24340828.geojson \
+  --saida resultados/etapa3
+python -m unittest discover -s tests -v
+```
+
+As saídas em `resultados/etapa3/` incluem CSVs com linhagens conservadoras,
+vínculos, eventos e resumo de transições, um JSON de procedência e um
+**GeoJSON de convergências para conferência no QGIS**. Para o evento de
+referência, foram encontrados **963 vínculos de área, 72 convergências
+geométricas e 219 patches sem predecessor por área** entre as observações.
+Na transição **10→11/09/2020**, 21 patches de 10/09 se relacionam por área
+com um patch de 11/09. Esses números **não demonstram ignições ou fusões
+físicas do fogo**. Consulte o relatório e as limitações em
+[docs/linhagens_patches_24340828.md](docs/linhagens_patches_24340828.md).
+
 ## Funcionamento
 
 O processamento realiza automaticamente as seguintes etapas:
@@ -401,16 +426,15 @@ Buracos não são contabilizados como novos componentes.
 O desenvolvimento previsto inclui (itens ainda não finalizados ou não
 reproduzidos integralmente neste repositório):
 
-- identificação persistente dos patches ao longo do tempo;
-- classificação de nascimento, continuidade e fusão;
-- métricas de paisagem por componente;
-- análise da conectividade;
-- cálculo de perímetro e fator de forma;
-- integração com QGIS;
+- validar cientificamente os critérios de identidade e as convergências
+  geométricas junto ao orientador;
+- avaliar indicadores adicionais de fragmentação/conectividade que não sejam
+  redundantes e que respeitem a escala da fonte;
 - processamento das trajetórias representativas;
-- análise dos extremos Norte, Sul, Leste e Oeste;
-- trajetória do centroide;
-- métricas de deslocamento, direção e deformação;
+- reproduzir integralmente a metodologia da Major sobre P2, incluindo
+  extremos Norte, Sul, Leste e Oeste, centroide e deslocamentos;
+- implementar e comparar a metodologia do Coronel;
+- integrar as duas escalas de análise em mapas, gráficos e interpretação;
 - integração com PostgreSQL/PostGIS.
 
 O estudo de caso também já possui, fora deste repositório, uma tabela de
@@ -428,10 +452,17 @@ CDG_incendio/
 │
 ├── gee_globfire_componentes_regiao_movel.js
 ├── scripts/
-│   └── validar_produtos.py
+│   ├── validar_produtos.py
+│   ├── calcular_metricas_paisagem.py
+│   └── rastrear_linhagens_patches.py
 ├── docs/
 │   ├── dados_e_validacao.md
-│   └── roteiro.md
+│   ├── roteiro.md
+│   ├── metricas_paisagem_24340828.md
+│   └── linhagens_patches_24340828.md
+├── resultados/
+│   ├── etapa2/
+│   └── etapa3/
 └── README.md
 ```
 
@@ -463,4 +494,6 @@ A etapa atual já possui:
 - rastreamento da região móvel por continuidade;
 - detecção automática do maior salto;
 - geração dos produtos P1 e P2;
-- validação inicial no QGIS.
+- validação inicial no QGIS;
+- métricas vetoriais reproduzíveis e sensibilidade de contato (Etapa 2);
+- grafo de sobreposição temporal e diagnóstico de convergências (Etapa 3).

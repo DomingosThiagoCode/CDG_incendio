@@ -27,9 +27,19 @@ sem tratar trabalhos exploratórios como resultados validados do estudo final.
    longo das datas, mostrando que a contagem de patches depende da
    interpretação topológica; os P1/P2 originais permanecem como base.
    Consulte [metricas_paisagem_24340828.md](metricas_paisagem_24340828.md).
-7. **Etapa seguinte:** aprofundar interpretação dos resultados e comparação
-   independente das metodologias de região móvel da Major e do Coronel.
-   Resultados científicos finais ainda estão em análise.
+7. **Relações temporais entre patches (Etapa 3):** reproduzida a associação
+   entre datas por interseção de área, distinguindo correspondências 1→1,
+   convergências N→1 e surgimentos sem predecessor. O caso apresentou 963
+   vínculos, 72 convergências e 219 surgimentos sem sobreposição anterior;
+   a transição 10→11/09 reúne um grupo de 21 patches anteriores para um
+   posterior. Geradas quatro tabelas, um resumo JSON e GeoJSON de
+   convergências para revisão no QGIS. Interpretação **geométrica**, não
+   confirmação de fusões físicas; consultar
+   [linhagens_patches_24340828.md](linhagens_patches_24340828.md).
+8. **Etapa seguinte:** reproduzir a metodologia da Major de forma
+   independente, implementar a do Coronel e comparar as regiões móveis,
+   enquanto as questões de conectividade e causalidade são debatidas na
+   orientação. Resultados científicos finais ainda estão em análise.
 
 ## O que significa “P1/P2 prontos”
 
@@ -39,10 +49,12 @@ geometrias passaram na verificação de validade após reprojeção para LAEA
 local neste estudo de caso. Isso **não prova** exatidão cartográfica nem
 garante que o algoritmo se comporte bem quando o ID é alterado.
 
-P1 é um conjunto de **componentes por data**, não um cadastro de patches com
-identidade temporal persistente. P2 contém a **região móvel rastreada** em cada
-observação. Os polígonos representam **área queimada acumulada**, não posição
-instantânea da frente ativa de fogo.
+P1 é um conjunto de **componentes por data**. A Etapa 3 acrescentou uma
+**identificação temporal derivada e conservadora** a esses registros, sem
+alterar o P1: linhagens são herdadas apenas em correspondências 1→1. P2
+contém a **região móvel rastreada** em cada observação. Os polígonos
+representam **área queimada acumulada**, não posição instantânea da frente
+ativa de fogo.
 
 ## Próxima especificação de testes
 
