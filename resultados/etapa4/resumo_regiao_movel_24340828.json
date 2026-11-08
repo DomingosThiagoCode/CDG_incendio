@@ -19,9 +19,9 @@
   },
   "empates_rastreamento": [],
   "centroide_deslocamento_acumulado_km": 34.07153478477665,
-  "metodo_major": "adaptacao_reprodutivel_cinco_feixes",
-  "comparador": "indicadores_poligono_integral_P2_sem_atribuicao_ao_coronel",
-  "metodo_coronel_formalizado": false,
+  "abordagem_tr": "trajetorias_representativas_cinco_descritores",
+  "comparador_geometrico_p2": "indicadores_da_geometria_integral",
+  "abordagem_igt_modulo_separado": "analisar_incrementos_geometricos.py",
   "projecao": {
     "crs": "LAEA local / WGS84",
     "centro_lon": -57.73985836,

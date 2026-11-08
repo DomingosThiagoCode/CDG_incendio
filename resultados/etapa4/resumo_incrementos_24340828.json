@@ -1,0 +1,33 @@
+{
+  "id_incendio": 24340828,
+  "abordagem": "IGT_incrementos_geometricos_temporais",
+  "observacoes": 57,
+  "transicoes": 56,
+  "componentes_incremento": 506,
+  "area_nova_total_km2": 949.8434887051621,
+  "area_perdida_total_km2": 5.259116421814421e-07,
+  "incremento_liquido_total_km2": 949.8434881792509,
+  "max_erro_fechamento_area_m2": 1.79302878677845e-06,
+  "max_erro_soma_componentes_m2": 2.9802322387695312e-08,
+  "lacunas_temporais": [
+    "2020-09-24",
+    "2020-10-01",
+    "2020-10-09"
+  ],
+  "projecao": {
+    "crs": "LAEA local / WGS84",
+    "centro_lon": -57.73985836,
+    "centro_lat": -16.60208267,
+    "limites_lonlat": [
+      -57.98886569963829,
+      -16.887498603125184,
+      -57.49085101419071,
+      -16.316666735093015
+    ],
+    "definicao_laea_proj4": "+proj=laea +lat_0=-16.6020826691 +lon_0=-57.7398583569 +datum=WGS84 +units=m +no_defs"
+  },
+  "sha256_p1": "7ae2d4baa3667a08a217983da08c44ddc94c97c21b5fa512cb2ca2db15296652",
+  "sha256_p2": "433bb887ba184ca80b06824d524f451512adc87719956cda03d64704f7b18013",
+  "sql_postgis_executado": false,
+  "comparabilidade_sql": "equivalencia logica; diferenca planar WGS84 no SQL vs LAEA no Python"
+}

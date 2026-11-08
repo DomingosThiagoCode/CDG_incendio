@@ -143,7 +143,8 @@ class ArquivosReaisTests(unittest.TestCase):
             self.assertEqual(len(resumo["ranks_rastreamento_divergentes"]), 0)
             self.assertEqual(resumo["criterios_rastreamento"]["sobreposicao"], 56)
             self.assertEqual(len(resumo["transicoes_com_lacuna"]), 3)
-            self.assertFalse(resumo["metodo_coronel_formalizado"])
+            self.assertEqual(resumo["abordagem_tr"],
+                             "trajetorias_representativas_cinco_descritores")
             self.assertLess(resumo["maior_diferenca_simetrica_p1_p2_m2"], 1)
             self.assertEqual(len(list(Path(pasta).glob("*.csv"))), 4)
             self.assertEqual(len(json.loads((Path(pasta)/
