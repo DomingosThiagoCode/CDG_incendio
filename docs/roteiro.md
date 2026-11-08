@@ -20,17 +20,22 @@ reutilização a testar.
 ## Etapa A — consistência e reprodutibilidade
 
 - [x] Automatizar uma primeira verificação estrutural/numérica de P1 e P2.
-- [ ] Especificar testes espaciais com casos sintéticos e limites de tolerância.
-- [ ] Executar e registrar a validação topológica dos polígonos.
-- [ ] Consolidar a distinção entre arquivos exportados e versões tratadas.
+- [x] Especificar testes espaciais com casos sintéticos e limites diagnósticos.
+- [x] Executar e registrar auditoria topológica dos polígonos em LAEA local.
+- [x] Consolidar a distinção entre arquivos exportados e geometrias de trabalho.
 - [ ] Tornar reproduzíveis os cálculos que originaram os CSVs históricos.
-- [ ] Fixar unidades, sistema de referência, convenções e tolerâncias.
+- [x] Fixar unidades e referencial LAEA para a linha de base das métricas;
+  limiares científicos para identificação de eventos ainda dependem de validação.
 
 ## Etapa B — métricas de paisagem (todos os componentes)
 
-- [ ] Calcular perímetro e índice de forma com método e unidade explícitos.
-- [ ] Selecionar medidas de dominância, fragmentação e conectividade que
-  respondam a perguntas específicas.
+- [x] Calcular perímetro e índice de forma vetorial com método e unidade explícitos.
+- [x] Produzir série temporal de área, incremento, taxa média, contagem,
+  dominância e forma média ponderada, com resultados por patch.
+- [x] Diagnosticar efeitos dos contatos por vértice na contagem de patches,
+  preservando o P1 original; não equiparar diretamente a 8 vizinhos raster.
+- [ ] Delimitar indicadores adicionais de fragmentação/conectividade e avaliar
+  a interpretação da distância ao vizinho em presença de contatos pontuais.
 - [ ] Reconstruir identidades de patches entre observações.
 - [ ] Classificar surgimento, continuidade e fusão por operações espaciais.
 - [ ] Interpretar mudanças expressivas, incluindo 10–12/09/2020.
