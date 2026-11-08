@@ -76,12 +76,28 @@ reutilização a testar.
 - [ ] Discutir com orientador a interpretação física e os limiares de sensibilidade para MODIS.
 - [ ] Interpretar a resolução MODIS e as lacunas com apoio de validação externa.
 
-## Etapa D — síntese científica e produto integrado
 
-- [ ] Integrar os indicadores P1 de paisagem com TR/IGT de P2 e as convergências da Etapa 3.
-- [ ] Produzir gráficos, mapas temáticos e narrativas para fases do incêndio 24340828.
-- [ ] Revisar as interpretações com o orientador e finalizar o relatório.
-- [ ] Testar um segundo ID e consolidar uma interface automatizada, somente após validar generalização.
+## Etapa 5 — integração P1 + linhagens + TR/IGT
+
+- [x] Definir contrato por ID, data, escala espacial, unidades e verificações cruzadas.
+- [x] Implementar decomposição da expansão P2 em área já queimada incorporada
+  e área realmente nova no evento.
+- [x] Criar código para cruzar etapas 2–4 e exportar série integrada, gráficos,
+  mapas e relatório interpretativo.
+- [x] Executar e versionar os resultados reais da Etapa 5 após testes no CI.
+- [ ] Revisar fases descritivas e eventos geométricos com o orientador,
+  confrontando sensores, lacunas e dados ambientais independentes.
+- [ ] Após consolidação, estender a outros IDs e futuramente criar interface.
+- Referência: [metodologia](etapa5_metodologia.md).
+
+## Etapa D — validação científica e generalização futura
+
+- [x] Integrar numericamente indicadores P1, linhagens e TR/IGT em Python.
+- [x] Produzir os gráficos, mapas e o relatório exploratório do estudo de caso.
+- [ ] Revisar interpretações, fases, escalas e incertezas com o orientador.
+- [ ] Confrontar casos de convergência com imagem e variáveis ambientais independentes.
+- [ ] Testar outro ID para avaliar a generalização.
+- [ ] Integrar a aquisição GEE ao pipeline Python e, futuramente, interface temporal.
 
 ## Etapa E — atributos para modelos de IA (extensão experimental)
 
@@ -101,8 +117,7 @@ reutilização a testar.
 
 1. Código reproduzível de extração, validação e análise espacial;
 2. GeoJSONs e tabelas com dicionário de dados e procedência;
-3. Trajetórias TR, camadas incrementais IGT para QGIS e análise comparativa
-   preliminar; atribuição formal ao artigo INPE ainda pendente;
+3. Trajetórias TR e componentes de diferenças geométricas IGT, incluindo direção, com base em Barbosa e Oliveira (2022);
 4. Dataset experimental de atributos espaço-temporais para pesquisas em IA.
 
 Nenhuma melhoria de desempenho preditivo é pressuposta antes da validação.
