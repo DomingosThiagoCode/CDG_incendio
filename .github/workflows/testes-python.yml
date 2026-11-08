@@ -20,3 +20,15 @@ jobs:
         run: python -m pip install -r requirements-auditoria.txt
       - name: Regressao analitica e real
         run: python -m unittest discover -s tests -v
+      - name: Gerar produtos consolidados TR x IGT
+        run: |
+          python scripts/consolidar_tr_igt.py \
+            dados/estudo_caso_24340828/P1_componentes_24340828.geojson \
+            dados/estudo_caso_24340828/P2_regiao_movel_24340828.geojson \
+            --saida saida_etapa4
+      - name: Publicar produtos para consulta
+        uses: actions/upload-artifact@v4
+        with:
+          name: etapa4-tr-igt-24340828
+          path: saida_etapa4/
+          retention-days: 90
