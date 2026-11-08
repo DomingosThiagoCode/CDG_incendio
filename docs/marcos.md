@@ -37,18 +37,26 @@ sem tratar trabalhos exploratórios como resultados validados do estudo final.
    confirmação de fusões físicas; consultar
    [linhagens_patches_24340828.md](linhagens_patches_24340828.md).
 8. **Trajetórias da região móvel (Etapa 4):** implementada a versão
-   reprodutível dos cinco feixes N/S/E/O/centroide da Major e indicadores
+   reprodutível dos cinco feixes N/S/E/O/centroide das **Trajetórias
+   Representativas (TR)** e indicadores
    geométricos do polígono P2 integral. A seleção independente por
    sobreposição reproduziu os **57 ranks**, com **56** transições,
    **285** pontos e **280** segmentos. As alterações entre centroides somam
    aproximadamente **34,072 km**, mas são mudanças de uma geometria
    acumulada, e não o avanço direto da frente do fogo. A documentação
-   distingue o comparador interno de uma metodologia própria do Coronel,
-   que **ainda precisa de especificação**. Consulte
+   distingue o comparador interno da abordagem IGT implementada depois.
+   Consulte
    [regioes_moveis_24340828.md](regioes_moveis_24340828.md).
-9. **Etapa seguinte:** confirmar o método do Coronel e os indicadores
-   comparáveis em reunião de orientação; validar contra o SQL histórico
-   da Major e discutir escala da fonte, conectividade e causalidade.
+9. **Generalização SQL e Incrementos Geométricos Temporais (IGT):**
+   conferidos os três SQLs da autora Priscila com hashes Git originais;
+   criadas views PostGIS multi-ID para TR, IGT e comparação. Implementação
+   Python independente validou 56 transições, 949,843489 km² de área nova
+   e 506 componentes incrementais do P2 do caso estudado, com testes
+   analíticos e rastreabilidade. A execução SQL no PostGIS real e a
+   leitura integral do artigo INPE permanecem pendentes.
+10. **Próxima decisão científica:** validar os SQLs no banco, conferir o
+    artigo INPE com o orientador e discutir escala, conectividade, direção
+    e causalidade. Evitar nomenclatura de patentes como nome de método.
    Conclusões científicas finais ainda estão em análise.
 
 ## O que significa “P1/P2 prontos”

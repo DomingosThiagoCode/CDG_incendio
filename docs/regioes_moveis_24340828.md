@@ -3,9 +3,10 @@
 **Evento:** GlobFire v2, `24340828` (Pantanal, 2020).
 
 **Período:** 09/08 a 09/10/2020, **57 observações** e **56 transições**.
-**Estado:** implementação e testes da parte computacional concluídos;
-**comparação formal Major × Coronel ainda condicionada à especificação do
-método do Coronel**.
+**Estado:** Trajetórias Representativas (TR) testadas; Incrementos
+Geométricos Temporais (IGT) implementados separadamente e comparados em
+[`comparacao_tr_igt_24340828.md`](comparacao_tr_igt_24340828.md). A execução
+PostGIS e a atribuição bibliográfica formal ao artigo INPE seguem pendentes.
 
 ## Objetivo e limites de atribuição
 
@@ -16,7 +17,7 @@ observação, rastreada dentro das componentes **P1**. Há três análises disti
    nas observações seguintes, candidato com maior interseção em área com o
    selecionado anterior; se não houver interseção, candidato mais próximo.
    Essa regra está no arquivo `gee_globfire_componentes_regiao_movel.js`.
-2. **Adaptação computacional da metodologia de Oliveira e Barbosa (Major):**
+2. **Trajetórias Representativas (TR), adaptação de Oliveira e Barbosa:**
    cinco feixes de trajetórias, obtidos do centroide e dos extremos Norte,
    Sul, Leste e Oeste de cada região. Calculam-se distâncias geodésicas,
    azimutes e diferenças orientadas em coordenadas métricas.
@@ -24,12 +25,10 @@ observação, rastreada dentro das componentes **P1**. Há três análises disti
    contorno, forma e avanços do envelope espacial, para estudar o que os
    cinco pontos resumem ou deixam de mostrar.
 
-**A análise (3) é um comparador geométrico construído neste projeto. Não é
-rotulada como “método do Coronel”.** O material de que dispomos descreve o
-Coronel principalmente em termos de **identidade e continuidade do patch**,
-mas não contém uma segunda formulação com equações e indicadores inequívocos.
-Esse protocolo deve ser obtido/confirmado com o orientador antes de atribuir
-resultados científicos à comparação entre autores.
+**A análise (3) é um comparador geométrico interno**, distinto do novo IGT,
+calculado como `R(t+1) \\ R(t)` e documentado separadamente. A referência
+externa do INPE não foi acessível; a correspondência detalhada de IGT às
+equações/indicadores de outra publicação requer leitura e orientação.
 
 ## 1. Base espacial e invariantes
 
@@ -57,7 +56,7 @@ resultados científicos à comparação entre autores.
 
 ## 2. Indicadores e sua interpretação
 
-### Cinco trajetórias (Major, adaptação)
+### Cinco trajetórias (TR, adaptação)
 
 Para cada ponto representativo `p` e duas observações `tᵢ` e `tⱼ`:
 
@@ -75,7 +74,7 @@ As cinco linhas de trajetória ligam os pontos observados em ordem temporal,
 ser o mesmo ponto material de `tᵢ`: um grande salto pode ocorrer quando o
 vértice mais extremo muda, mesmo que o polígono não sofra translação rígida.
 
-### Polígono integral (comparador interno, sem atribuição ao Coronel)
+### Polígono integral (diagnóstico adicional de P2)
 
 Para as geometrias LAEA `A` (anterior) e `B` (atual):
 
@@ -189,10 +188,9 @@ P1/P2. O reuso com outros incêndios **ainda exige validação externa**.
 
 ## 6. Decisões científicas a confirmar com o orientador
 
-1. **Qual é a referência/definição formal da metodologia do Coronel?**
-   Solicitar equações, regras de identidade e indicadores esperados. Sem
-   essa definição, comparar o comparador interno com a Major **não pode**
-   ser apresentado como validação dos dois métodos.
+1. **O que o artigo INPE realmente define?** Solicitar o PDF, identificar
+   equações e indicadores e verificar se IGT operacional corresponde ao
+   método publicado; o organograma não substitui essa validação formal.
 2. A semântica de “região móvel” é adequada para **área queimada acumulada**?
    O centroide pode mudar por crescimento unilateral sem translação.
 3. Como tratar **fusão geométrica de patches** e a perda de identidade de
@@ -224,4 +222,5 @@ P1/P2. O reuso com outros incêndios **ainda exige validação externa**.
 conjunto de indicadores reprodutíveis da abordagem dos cinco feixes.
 Não foi demonstrada a equivalência integral de todas as regras do SQL
 histórico, nem implementada uma metodologia formal autônoma atribuível
-ao Coronel, por falta de especificação disponível.
+à abordagem externa do artigo INPE, cuja especificação completa ainda
+precisa ser verificada.

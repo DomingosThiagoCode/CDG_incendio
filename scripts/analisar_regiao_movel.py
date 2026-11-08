@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Etapa 4: diagnostico independente das trajetorias de P2.
 
-Implementa os cinco pontos representativos de Oliveira & Barbosa (2025),
-reexecuta a regra de rastreamento ja documentada no GEE e compara os cinco
-feixes com indicadores do poligono integral. NAO atribui esta ultima
-comparacao a uma metodologia formal do Coronel ainda nao especificada.
+Implementa trajetorias representativas (TR) de Oliveira & Barbosa (2025),
+reexecuta a regra de rastreamento GEE e acrescenta diagnosticos geometricos
+do poligono integral. Incrementos geometricos temporais (IGT) sao calculados
+em modulo separado, sem afirmar equivalencia a fonte bibliografica externa.
 
 P2 representa area queimada ACUMULADA e nao a frente ativa do incendio.
 """
@@ -281,9 +281,9 @@ def analisar(por_data: dict[str, list[Patch]],
         "empates_rastreamento": [r["data"] for r in rastreamento if r["empate_melhor_escore"]],
         "centroide_deslocamento_acumulado_km": sum(
             r["distancia_geodesica_km"] for r in tabela_feixes if r["ponto"] == "centroide"),
-        "metodo_major": "adaptacao_reprodutivel_cinco_feixes",
-        "comparador": "indicadores_poligono_integral_P2_sem_atribuicao_ao_coronel",
-        "metodo_coronel_formalizado": False,
+        "abordagem_tr": "trajetorias_representativas_cinco_descritores",
+        "comparador_geometrico_p2": "indicadores_da_geometria_integral",
+        "abordagem_igt_modulo_separado": "analisar_incrementos_geometricos.py",
     }
     return tabela_pontos, tabela_feixes, tabela_regiao, rastreamento, trajetorias, resumo
 

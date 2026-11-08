@@ -15,7 +15,7 @@ reutilização a testar.
   numérica inicial, com hashes e documentação de origem.
 - [x] Produzir uma tabela inicial de métricas diárias do P1 (material histórico).
 - [x] Produzir CSV inicial com métricas de trajetória da RM segundo a
-  implementação da metodologia da Major (material histórico).
+  abordagem de Trajetórias Representativas (material histórico).
 
 ## Etapa A — consistência e reprodutibilidade
 
@@ -49,16 +49,19 @@ reutilização a testar.
 
 - [x] Reproduzir de forma independente a regra de rastreamento GEE do P2
   a partir de P1, inclusive testes sintéticos com rank diferente de 1.
-- [x] Implementar adaptação reprodutível dos cinco feixes de Oliveira e
-  Barbosa (Major), com pontos, distâncias geodésicas, azimutes e projeções.
+- [x] Implementar adaptação reprodutível das Trajetórias Representativas
+  (TR) de Oliveira e Barbosa, com distâncias, azimutes e projeções.
 - [x] Calcular indicadores do polígono integral (Jaccard, área, forma,
-  avanços cardeais) **como comparador interno não atribuído ao Coronel**.
+  avanços cardeais) como diagnósticos internos adicionais.
 - [x] Preservar lacunas temporais e registrar as diferenças de tolerância,
   projeção LAEA e desempate de extremos em relação ao SQL original.
-- [ ] Comparar numericamente as saídas da adaptação com a execução
-  histórica original da Major sobre os mesmos P2 (ainda não reproduzida).
-- [ ] Obter do orientador uma formulação própria verificável do método
-  do Coronel, implementá-la e realizar a comparação científica formal.
+- [x] Implementar **Incrementos Geométricos Temporais (IGT)** conforme
+  diferença de regiões do organograma `R(t+1) \\ R(t)`, testar em Python no
+  ID `24340828` e versionar SQLs genéricos TR × IGT.
+- [ ] Confrontar a execução PostGIS dos SQLs adaptados com as saídas Python
+  e, onde tecnicamente comparável, com a implementação histórica original.
+- [ ] Ler integralmente o artigo INPE indicado e confirmar com o orientador
+  quais equações/indicadores correspondem ao protocolo publicado.
 - [ ] Interpretar a resolução MODIS e as lacunas com apoio de validação externa.
 
 ## Etapa D — atributos para modelos de IA (extensão experimental)
@@ -79,8 +82,8 @@ reutilização a testar.
 
 1. Código reproduzível de extração, validação e análise espacial;
 2. GeoJSONs e tabelas com dicionário de dados e procedência;
-3. Trajetórias para QGIS e relatório preliminar de P2; comparação formal
-   Major × Coronel dependente de confirmação metodológica;
+3. Trajetórias TR, camadas incrementais IGT para QGIS e análise comparativa
+   preliminar; atribuição formal ao artigo INPE ainda pendente;
 4. Dataset experimental de atributos espaço-temporais para pesquisas em IA.
 
 Nenhuma melhoria de desempenho preditivo é pressuposta antes da validação.

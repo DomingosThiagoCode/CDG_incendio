@@ -443,12 +443,38 @@ python scripts/analisar_regiao_movel.py \
   --saida resultados/etapa4
 ```
 
-**Ressalva metodológica:** a abordagem da Major foi adaptada de Oliveira e
-Barbosa (2025). O diagnóstico do polígono completo **não foi atribuído ao
-Coronel**: sua formulação específica ainda deve ser confirmada com o
-orientador. Todas as equações, escolhas de desempate, unidades, arquivos,
-resultados e limitações constam no
-[relatório da Etapa 4](docs/regioes_moveis_24340828.md).
+**Terminologia atual:** **TR — Trajetórias Representativas**, adaptada de
+Oliveira e Barbosa (2025); **IGT — Incrementos Geométricos Temporais**,
+definida operacionalmente por diferença `R(t+1) \ R(t)` no organograma.
+Os apelidos militares anteriores ficam apenas no histórico de proveniência.
+O diagnóstico do polígono inteiro desta primeira implementação não é, por
+si, a definição de IGT. Veja o [relatório da Etapa 4](docs/regioes_moveis_24340828.md).
+
+### SQLs generalizados e comparação TR × IGT
+
+Em [`sql/`](sql/) estão os novos SQLs **PostGIS 3+**, independentes de ID,
+com views para as cinco trajetórias, diferença geométrica por transição,
+componentes do incremento e comparação conjunta. O
+[`sql/README.md`](sql/README.md) especifica o formato da tabela de entrada,
+os comandos e a rastreabilidade das **três fontes SQL originais** de Priscila.
+O método não depende de tabelas do furacão Beryl ou de projeção Web Mercator.
+
+Para **testar IGT de forma independente** com os GeoJSON reais do Pantanal:
+
+```bash
+python scripts/analisar_incrementos_geometricos.py \
+  dados/estudo_caso_24340828/P1_componentes_24340828.geojson \
+  dados/estudo_caso_24340828/P2_regiao_movel_24340828.geojson \
+  --saida resultados/etapa4
+python -m unittest discover -s tests -v
+```
+
+O ID `24340828` resultou em **56 transições, 949,843489 km² de área
+incremental total e 506 partes geométricas** (incluindo fragmentos menores
+que 1 m²). O teste espacial independente foi executado; **as views SQL
+precisam ser executadas e confrontadas em um servidor PostGIS real**.
+Números, definições, limites e pontos para discussão estão em
+[`docs/comparacao_tr_igt_24340828.md`](docs/comparacao_tr_igt_24340828.md).
 
 ## Próximas etapas
 
@@ -459,10 +485,10 @@ reproduzidos integralmente neste repositório):
   geométricas junto ao orientador;
 - avaliar indicadores adicionais de fragmentação/conectividade que não sejam
   redundantes e que respeitem a escala da fonte;
-- comparar as saídas com os indicadores e decisões do SQL histórico da Major,
-  identificando possíveis divergências por projeção ou desempate;
-- obter a formulação matemática própria do Coronel antes de atribuir a ele
-  um segundo método; em seguida, implementar o comparativo formal;
+- comparar a execução **PostGIS** dos SQLs generalizados com o Python e
+  com o SQL histórico de Oliveira/Barbosa, registrando projeção/desempate;
+- obter o PDF do INPE, conferir a equivalência entre a formulação descrita
+  e o **IGT** operacional, antes de qualquer atribuição autoral formal;
 - integrar as duas escalas de análise em mapas, gráficos e interpretação;
 - integração com PostgreSQL/PostGIS.
 
@@ -484,13 +510,20 @@ CDG_incendio/
 │   ├── validar_produtos.py
 │   ├── calcular_metricas_paisagem.py
 │   ├── rastrear_linhagens_patches.py
-│   └── analisar_regiao_movel.py
+│   ├── analisar_regiao_movel.py
+│   └── analisar_incrementos_geometricos.py
+├── sql/
+│   ├── 01_trajetorias_representativas.sql
+│   ├── 02_incrementos_geometricos_temporais.sql
+│   ├── 03_comparacao.sql
+│   └── README.md
 ├── docs/
 │   ├── dados_e_validacao.md
 │   ├── roteiro.md
 │   ├── metricas_paisagem_24340828.md
 │   ├── linhagens_patches_24340828.md
-│   └── regioes_moveis_24340828.md
+│   ├── regioes_moveis_24340828.md
+│   └── comparacao_tr_igt_24340828.md
 ├── resultados/
 │   ├── etapa2/
 │   ├── etapa3/

@@ -169,7 +169,8 @@ python -m unittest discover -s tests -v
 ```
 
 Os resultados exploratórios **não mudam os produtos P1/P2** nem definem
-automaticamente a abordagem da Major ou do Coronel. As decisões sobre
+automaticamente a abordagem de Trajetórias Representativas (TR) ou a de
+Incrementos Geométricos Temporais (IGT). As decisões sobre
 interpretação de fusões aparentes, área de referência para fragmentação e
 validação externa permanecem temas para a orientação.
 
