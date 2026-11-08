@@ -1,0 +1,8 @@
+afirmacao,categoria,status,limite,proxima_acao
+Area P1/P2 internamente coerente,computacional,auditada_internamente,Acuracia de sensor nao avaliada,Confrontar com imagens e BurnDate/QA
+Incorporacao de area ja queimada ao P2,geometrica,auditada_internamente,Fusao fisica nao demonstrada,Revisar 09-11 de setembro com cenas independentes
+72 convergencias representam encontros reais de frentes,fisica,nao_validada_externamente,Grafo de intersecoes apenas,Amostragem independente de casos de convergencia
+Tres fases identificam regimes fisicos de fogo,causal,exploratoria,BIC sobre serie acumulada e dependente,Confrontar com series independentes e orientador
+TR descreve cinco pontos da regiao movel,metodologica,reproduzida_com_adaptacoes,Nao mede frente ativa,Conferir desempates e escala com orientador
+IGT descreve partes acrescentadas e reduzidas,metodologica,reproduzida_com_adaptacoes,Media ponderada e sintese propria,Conferir interpretacao direcional com orientador
+Azimutes indicam propagacao fisica,fisica,nao_validada_externamente,Sem fogo ativo independente,Confrontar com observacoes independentes
