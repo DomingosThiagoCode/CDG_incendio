@@ -5,6 +5,18 @@ validação e pesquisa ainda necessárias. O foco inicial permanece o evento
 GlobFire `24340828`; a generalização para outros IDs é uma hipótese de
 reutilização a testar.
 
+
+> **Atualização metodológica, 08/11/2026.** A Etapa 4 passou a utilizar
+> **Python como implementação canônica**. O artigo de Barbosa e Oliveira
+> (2022), disponível integralmente no projeto, foi lido: ele contempla
+> trajetórias representativas e diferenças geométricas entre regiões,
+> incluindo áreas acrescentadas e reduzidas. A nova rotina Python
+> [consolidar_tr_igt.py](../scripts/consolidar_tr_igt.py) centraliza a
+> execução, compara resultados TR/IGT e produz componentes de redução.
+> Os SQLs ficam **arquivados como referência**, sem dependência operacional
+> nem afirmação de que foram executados no PostGIS. Consulte
+> [fechamento da Etapa 4](fechamento_etapa4.md).
+
 ## Etapas existentes
 
 - [x] Selecionar evento por ID e detectar datas no Google Earth Engine.
@@ -58,13 +70,20 @@ reutilização a testar.
 - [x] Implementar **Incrementos Geométricos Temporais (IGT)** conforme
   diferença de regiões do organograma `R(t+1) \\ R(t)`, testar em Python no
   ID `24340828` e versionar SQLs genéricos TR × IGT.
-- [ ] Confrontar a execução PostGIS dos SQLs adaptados com as saídas Python
-  e, onde tecnicamente comparável, com a implementação histórica original.
-- [ ] Ler integralmente o artigo INPE indicado e confirmar com o orientador
-  quais equações/indicadores correspondem ao protocolo publicado.
+- [x] Documentar o arquivamento dos SQLs adaptados e a primazia da execução Python; a execução no PostGIS não ocorreu e não é dependência.
+- [ ] Auditoria SQL × Python permanece **opcional**, caso surja infraestrutura para executar os SQLs históricos.
+- [x] Ler integralmente Barbosa e Oliveira (2022), GEOINFO, p. 299–304, incluindo a diferença geométrica de áreas acrescentadas e reduzidas.
+- [ ] Discutir com orientador a interpretação física e os limiares de sensibilidade para MODIS.
 - [ ] Interpretar a resolução MODIS e as lacunas com apoio de validação externa.
 
-## Etapa D — atributos para modelos de IA (extensão experimental)
+## Etapa D — síntese científica e produto integrado
+
+- [ ] Integrar os indicadores P1 de paisagem com TR/IGT de P2 e as convergências da Etapa 3.
+- [ ] Produzir gráficos, mapas temáticos e narrativas para fases do incêndio 24340828.
+- [ ] Revisar as interpretações com o orientador e finalizar o relatório.
+- [ ] Testar um segundo ID e consolidar uma interface automatizada, somente após validar generalização.
+
+## Etapa E — atributos para modelos de IA (extensão experimental)
 
 - [ ] Definir uma pergunta operacional clara (por exemplo, crescimento de área
   queimada **na próxima observação**), distinguindo-a de detecção de fogo ativo.

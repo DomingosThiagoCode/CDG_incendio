@@ -1,5 +1,9 @@
 # CDG Incêndio — análise espaço-temporal de áreas queimadas
 
+**Processamento principal: Python (Shapely/PyProj); GEE: extração P1/P2; QGIS: visualização.**
+
+[**Fechamento da Etapa 4 e migração do SQL**](docs/fechamento_etapa4.md): base científica em Barbosa e Oliveira (2022), comparação TR × IGT e redução geométrica; SQL arquivado como referência não executada.
+
 Projeto para análise espaço-temporal de grandes incêndios utilizando **Google Earth Engine**, **QGIS** e, posteriormente, ferramentas de análise espacial e métricas de paisagem.
 
 A implementação atual utiliza os dados **JRC/GWIS GlobFire v2 – Daily Perimeters** para reconstruir a evolução acumulada de um incêndio ao longo do tempo, separar seus componentes espaciais e acompanhar automaticamente o componente principal como uma **região móvel**.
@@ -478,6 +482,9 @@ Números, definições, limites e pontos para discussão estão em
 
 ## Próximas etapas
 
+**Etapa 4 (Python):** executar a rotina integrada e conferir as saídas de comparação TR × IGT. A validação de um segundo ID e a análise científica integrada continuam no backlog. PostGIS não é mais dependência.
+
+
 O desenvolvimento previsto inclui (itens ainda não finalizados ou não
 reproduzidos integralmente neste repositório):
 
@@ -490,7 +497,7 @@ reproduzidos integralmente neste repositório):
 - obter o PDF do INPE, conferir a equivalência entre a formulação descrita
   e o **IGT** operacional, antes de qualquer atribuição autoral formal;
 - integrar as duas escalas de análise em mapas, gráficos e interpretação;
-- integração com PostgreSQL/PostGIS.
+- consolidar um pipeline executável unificado em Python; manter SQL somente como arquivo histórico para auditoria opcional.
 
 O estudo de caso também já possui, fora deste repositório, uma tabela de
 métricas diárias do P1 e um CSV de análise de trajetórias do P2. O procedimento
