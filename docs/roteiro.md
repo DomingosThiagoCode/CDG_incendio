@@ -47,10 +47,19 @@ reutilização a testar.
 
 ## Etapa C — regiões móveis (patch rastreado)
 
-- [ ] Reproduzir os resultados numéricos do método da Major a partir de código.
-- [ ] Implementar a formulação definida para a metodologia do Coronel.
-- [ ] Comparar deslocamentos, direções, extremos e mudanças de forma.
-- [ ] Investigar a influência das lacunas temporais e da resolução dos dados.
+- [x] Reproduzir de forma independente a regra de rastreamento GEE do P2
+  a partir de P1, inclusive testes sintéticos com rank diferente de 1.
+- [x] Implementar adaptação reprodutível dos cinco feixes de Oliveira e
+  Barbosa (Major), com pontos, distâncias geodésicas, azimutes e projeções.
+- [x] Calcular indicadores do polígono integral (Jaccard, área, forma,
+  avanços cardeais) **como comparador interno não atribuído ao Coronel**.
+- [x] Preservar lacunas temporais e registrar as diferenças de tolerância,
+  projeção LAEA e desempate de extremos em relação ao SQL original.
+- [ ] Comparar numericamente as saídas da adaptação com a execução
+  histórica original da Major sobre os mesmos P2 (ainda não reproduzida).
+- [ ] Obter do orientador uma formulação própria verificável do método
+  do Coronel, implementá-la e realizar a comparação científica formal.
+- [ ] Interpretar a resolução MODIS e as lacunas com apoio de validação externa.
 
 ## Etapa D — atributos para modelos de IA (extensão experimental)
 
@@ -70,7 +79,8 @@ reutilização a testar.
 
 1. Código reproduzível de extração, validação e análise espacial;
 2. GeoJSONs e tabelas com dicionário de dados e procedência;
-3. Mapas, gráficos e relatório comparando as duas abordagens de região móvel;
+3. Trajetórias para QGIS e relatório preliminar de P2; comparação formal
+   Major × Coronel dependente de confirmação metodológica;
 4. Dataset experimental de atributos espaço-temporais para pesquisas em IA.
 
 Nenhuma melhoria de desempenho preditivo é pressuposta antes da validação.

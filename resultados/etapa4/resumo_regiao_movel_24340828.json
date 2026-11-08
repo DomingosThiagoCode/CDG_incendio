@@ -1,0 +1,43 @@
+{
+  "id_incendio": 24340828,
+  "datas": 57,
+  "transicoes": 56,
+  "pontos": 285,
+  "segmentos": 280,
+  "trajetorias": 5,
+  "ranks_rastreamento_conferem": 57,
+  "ranks_rastreamento_divergentes": [],
+  "transicoes_com_lacuna": [
+    "2020-09-24",
+    "2020-10-01",
+    "2020-10-09"
+  ],
+  "criterios_rastreamento": {
+    "inicial_maior_area": 1,
+    "sobreposicao": 56,
+    "distancia_fallback": 0
+  },
+  "empates_rastreamento": [],
+  "centroide_deslocamento_acumulado_km": 34.07153478477665,
+  "metodo_major": "adaptacao_reprodutivel_cinco_feixes",
+  "comparador": "indicadores_poligono_integral_P2_sem_atribuicao_ao_coronel",
+  "metodo_coronel_formalizado": false,
+  "projecao": {
+    "crs": "LAEA local / WGS84",
+    "centro_lon": -57.73985836,
+    "centro_lat": -16.60208267,
+    "limites_lonlat": [
+      -57.98886569963829,
+      -16.887498603125184,
+      -57.49085101419071,
+      -16.316666735093015
+    ],
+    "definicao_laea_proj4": "+proj=laea +lat_0=-16.6020826691 +lon_0=-57.7398583569 +datum=WGS84 +units=m +no_defs"
+  },
+  "geometrias_reparadas_apos_projecao": 0,
+  "maior_diferenca_simetrica_p1_p2_m2": 4.1791168231335994e-05,
+  "sha256_p1": "7ae2d4baa3667a08a217983da08c44ddc94c97c21b5fa512cb2ca2db15296652",
+  "sha256_p2": "433bb887ba184ca80b06824d524f451512adc87719956cda03d64704f7b18013",
+  "origem_p1": "dados/estudo_caso_24340828/P1_componentes_24340828.geojson",
+  "origem_p2": "dados/estudo_caso_24340828/P2_regiao_movel_24340828.geojson"
+}

@@ -421,6 +421,35 @@ Assim cada componente pode ser visualizado separadamente.
 
 Buracos não são contabilizados como novos componentes.
 
+## Etapa 4: trajetórias da região móvel (P2)
+
+O script [`scripts/analisar_regiao_movel.py`](scripts/analisar_regiao_movel.py)
+reexecuta em Python a regra de continuidade do P2 a partir dos componentes
+do P1, extrai **cinco trajetórias representativas** (N, S, L, O, centroide),
+e calcula distância, azimute, avanços cardeais e métricas do **polígono
+integral** (área, Jaccard e índice de forma). Ele também produz as cinco
+linhas GeoJSON para visualizar no QGIS.
+
+No evento `24340828`, a seleção reproduziu **57/57 ranks do P2**.
+Foram gerados **285 pontos, 280 segmentos e 56 transições espaciais**,
+preservando os arquivos originais. A soma das mudanças entre centroides é
+**34,072 km**, um descritor da mudança da geometria acumulada — **não**
+o percurso da frente de fogo.
+
+```bash
+python scripts/analisar_regiao_movel.py \
+  dados/estudo_caso_24340828/P1_componentes_24340828.geojson \
+  dados/estudo_caso_24340828/P2_regiao_movel_24340828.geojson \
+  --saida resultados/etapa4
+```
+
+**Ressalva metodológica:** a abordagem da Major foi adaptada de Oliveira e
+Barbosa (2025). O diagnóstico do polígono completo **não foi atribuído ao
+Coronel**: sua formulação específica ainda deve ser confirmada com o
+orientador. Todas as equações, escolhas de desempate, unidades, arquivos,
+resultados e limitações constam no
+[relatório da Etapa 4](docs/regioes_moveis_24340828.md).
+
 ## Próximas etapas
 
 O desenvolvimento previsto inclui (itens ainda não finalizados ou não
@@ -430,10 +459,10 @@ reproduzidos integralmente neste repositório):
   geométricas junto ao orientador;
 - avaliar indicadores adicionais de fragmentação/conectividade que não sejam
   redundantes e que respeitem a escala da fonte;
-- processamento das trajetórias representativas;
-- reproduzir integralmente a metodologia da Major sobre P2, incluindo
-  extremos Norte, Sul, Leste e Oeste, centroide e deslocamentos;
-- implementar e comparar a metodologia do Coronel;
+- comparar as saídas com os indicadores e decisões do SQL histórico da Major,
+  identificando possíveis divergências por projeção ou desempate;
+- obter a formulação matemática própria do Coronel antes de atribuir a ele
+  um segundo método; em seguida, implementar o comparativo formal;
 - integrar as duas escalas de análise em mapas, gráficos e interpretação;
 - integração com PostgreSQL/PostGIS.
 
@@ -454,15 +483,18 @@ CDG_incendio/
 ├── scripts/
 │   ├── validar_produtos.py
 │   ├── calcular_metricas_paisagem.py
-│   └── rastrear_linhagens_patches.py
+│   ├── rastrear_linhagens_patches.py
+│   └── analisar_regiao_movel.py
 ├── docs/
 │   ├── dados_e_validacao.md
 │   ├── roteiro.md
 │   ├── metricas_paisagem_24340828.md
-│   └── linhagens_patches_24340828.md
+│   ├── linhagens_patches_24340828.md
+│   └── regioes_moveis_24340828.md
 ├── resultados/
 │   ├── etapa2/
-│   └── etapa3/
+│   ├── etapa3/
+│   └── etapa4/
 └── README.md
 ```
 
@@ -496,4 +528,6 @@ A etapa atual já possui:
 - geração dos produtos P1 e P2;
 - validação inicial no QGIS;
 - métricas vetoriais reproduzíveis e sensibilidade de contato (Etapa 2);
-- grafo de sobreposição temporal e diagnóstico de convergências (Etapa 3).
+- grafo de sobreposição temporal e diagnóstico de convergências (Etapa 3);
+- cinco feixes de trajetórias e indicadores integrais de P2, com reprodução
+  independente da seleção por continuidade (Etapa 4, núcleo computacional).
