@@ -1,0 +1,274 @@
+{
+  "id_incendio": 24340828,
+  "numero_registros_p1": 978,
+  "numero_datas": 57,
+  "numero_transicoes_observadas": 56,
+  "data_inicial": "2020-08-09",
+  "data_final": "2020-10-09",
+  "numero_linhagens_conservadoras": 293,
+  "numero_vinculos_area": 963,
+  "numero_eventos_grafo": 976,
+  "eventos_por_tipo": {
+    "continuacao": 685,
+    "convergencia": 72,
+    "surgimento_sem_sobreposicao": 219
+  },
+  "limiar_area_intersecao_m2": 1.0,
+  "lacunas_temporais": [
+    {
+      "de": "2020-09-22",
+      "ate": "2020-09-24",
+      "dias": 2
+    },
+    {
+      "de": "2020-09-29",
+      "ate": "2020-10-01",
+      "dias": 2
+    },
+    {
+      "de": "2020-10-05",
+      "ate": "2020-10-09",
+      "dias": 4
+    }
+  ],
+  "transicoes_com_convergencia": [
+    {
+      "de": "2020-08-09",
+      "ate": "2020-08-10",
+      "eventos": 1
+    },
+    {
+      "de": "2020-08-10",
+      "ate": "2020-08-11",
+      "eventos": 1
+    },
+    {
+      "de": "2020-08-11",
+      "ate": "2020-08-12",
+      "eventos": 2
+    },
+    {
+      "de": "2020-08-12",
+      "ate": "2020-08-13",
+      "eventos": 1
+    },
+    {
+      "de": "2020-08-13",
+      "ate": "2020-08-14",
+      "eventos": 1
+    },
+    {
+      "de": "2020-08-14",
+      "ate": "2020-08-15",
+      "eventos": 1
+    },
+    {
+      "de": "2020-08-15",
+      "ate": "2020-08-16",
+      "eventos": 1
+    },
+    {
+      "de": "2020-08-16",
+      "ate": "2020-08-17",
+      "eventos": 1
+    },
+    {
+      "de": "2020-08-17",
+      "ate": "2020-08-18",
+      "eventos": 2
+    },
+    {
+      "de": "2020-08-18",
+      "ate": "2020-08-19",
+      "eventos": 2
+    },
+    {
+      "de": "2020-08-19",
+      "ate": "2020-08-20",
+      "eventos": 1
+    },
+    {
+      "de": "2020-08-20",
+      "ate": "2020-08-21",
+      "eventos": 3
+    },
+    {
+      "de": "2020-08-21",
+      "ate": "2020-08-22",
+      "eventos": 1
+    },
+    {
+      "de": "2020-08-22",
+      "ate": "2020-08-23",
+      "eventos": 2
+    },
+    {
+      "de": "2020-08-23",
+      "ate": "2020-08-24",
+      "eventos": 1
+    },
+    {
+      "de": "2020-08-24",
+      "ate": "2020-08-25",
+      "eventos": 1
+    },
+    {
+      "de": "2020-08-25",
+      "ate": "2020-08-26",
+      "eventos": 2
+    },
+    {
+      "de": "2020-08-26",
+      "ate": "2020-08-27",
+      "eventos": 1
+    },
+    {
+      "de": "2020-08-27",
+      "ate": "2020-08-28",
+      "eventos": 1
+    },
+    {
+      "de": "2020-08-28",
+      "ate": "2020-08-29",
+      "eventos": 1
+    },
+    {
+      "de": "2020-08-29",
+      "ate": "2020-08-30",
+      "eventos": 1
+    },
+    {
+      "de": "2020-08-30",
+      "ate": "2020-08-31",
+      "eventos": 1
+    },
+    {
+      "de": "2020-08-31",
+      "ate": "2020-09-01",
+      "eventos": 2
+    },
+    {
+      "de": "2020-09-01",
+      "ate": "2020-09-02",
+      "eventos": 1
+    },
+    {
+      "de": "2020-09-03",
+      "ate": "2020-09-04",
+      "eventos": 2
+    },
+    {
+      "de": "2020-09-04",
+      "ate": "2020-09-05",
+      "eventos": 1
+    },
+    {
+      "de": "2020-09-05",
+      "ate": "2020-09-06",
+      "eventos": 3
+    },
+    {
+      "de": "2020-09-06",
+      "ate": "2020-09-07",
+      "eventos": 4
+    },
+    {
+      "de": "2020-09-07",
+      "ate": "2020-09-08",
+      "eventos": 2
+    },
+    {
+      "de": "2020-09-08",
+      "ate": "2020-09-09",
+      "eventos": 2
+    },
+    {
+      "de": "2020-09-09",
+      "ate": "2020-09-10",
+      "eventos": 5
+    },
+    {
+      "de": "2020-09-10",
+      "ate": "2020-09-11",
+      "eventos": 1
+    },
+    {
+      "de": "2020-09-11",
+      "ate": "2020-09-12",
+      "eventos": 2
+    },
+    {
+      "de": "2020-09-12",
+      "ate": "2020-09-13",
+      "eventos": 1
+    },
+    {
+      "de": "2020-09-13",
+      "ate": "2020-09-14",
+      "eventos": 1
+    },
+    {
+      "de": "2020-09-14",
+      "ate": "2020-09-15",
+      "eventos": 1
+    },
+    {
+      "de": "2020-09-15",
+      "ate": "2020-09-16",
+      "eventos": 3
+    },
+    {
+      "de": "2020-09-16",
+      "ate": "2020-09-17",
+      "eventos": 3
+    },
+    {
+      "de": "2020-09-17",
+      "ate": "2020-09-18",
+      "eventos": 2
+    },
+    {
+      "de": "2020-09-18",
+      "ate": "2020-09-19",
+      "eventos": 3
+    },
+    {
+      "de": "2020-09-19",
+      "ate": "2020-09-20",
+      "eventos": 1
+    },
+    {
+      "de": "2020-09-20",
+      "ate": "2020-09-21",
+      "eventos": 1
+    },
+    {
+      "de": "2020-09-24",
+      "ate": "2020-09-25",
+      "eventos": 1
+    },
+    {
+      "de": "2020-09-27",
+      "ate": "2020-09-28",
+      "eventos": 1
+    }
+  ],
+  "menor_retencao_area_anterior_pct": 99.99999992547237,
+  "nota_interpretativa": "Convergencia/divergencia classificam componentes do grafo de sobreposicao vetorial entre observacoes, nao fusoes ou novas ignicoes fisicas. Contatos sem area sao descartados como vinculo. Na primeira data, linhagens sao apenas linha de base; sem observacao posterior nao implica fim do incendio.",
+  "projecao": {
+    "crs": "LAEA local / WGS84",
+    "centro_lon": -57.73985836,
+    "centro_lat": -16.60208267,
+    "limites_lonlat": [
+      -57.98886569963829,
+      -16.887498603125184,
+      -57.49085101419071,
+      -16.316666735093015
+    ],
+    "definicao_laea_proj4": "+proj=laea +lat_0=-16.6020826691 +lon_0=-57.7398583569 +datum=WGS84 +units=m +no_defs"
+  },
+  "geometrias_reparadas_apos_projecao": 0,
+  "origem_p1": "dados/estudo_caso_24340828/P1_componentes_24340828.geojson",
+  "sha256_p1": "7ae2d4baa3667a08a217983da08c44ddc94c97c21b5fa512cb2ca2db15296652",
+  "numero_feicoes_geojson_convergencia": 72
+}
