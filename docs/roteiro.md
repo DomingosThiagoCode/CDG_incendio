@@ -84,7 +84,7 @@ reutilização a testar.
   e área realmente nova no evento.
 - [x] Criar código para cruzar etapas 2–4 e exportar série integrada, gráficos,
   mapas e relatório interpretativo.
-- [ ] Executar e versionar os resultados reais da Etapa 5 após testes no CI.
+- [x] Executar e versionar os resultados reais da Etapa 5 após testes no CI.
 - [ ] Revisar fases descritivas e eventos geométricos com o orientador,
   confrontando sensores, lacunas e dados ambientais independentes.
 - [ ] Após consolidação, estender a outros IDs e futuramente criar interface.

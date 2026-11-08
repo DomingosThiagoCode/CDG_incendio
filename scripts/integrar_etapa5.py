@@ -253,10 +253,26 @@ def figuras_temporais(diarias,transicoes,saida):
         ("Area total do evento - P1",[r["area_total_laea_km2"] for r in diarias]),
         ("Area do patch rastreado - P2",[r["p2_area_laea_km2"] for r in diarias]),
     ],"Area LAEA (km2)","Areas queimadas acumuladas: evento e componente principal")
-    _figura_linhas(saida/"02_fragmentacao_dominancia.png",datas,[
-        ("Patches (quantidade)",[r["numero_patches"] for r in diarias]),
-        ("Dominancia do maior patch (%)",[r["dominancia_maior_patch_pct"] for r in diarias]),
-    ],"Numero / percentual (escalas distintas)","Contagem de patches e dominancia: escalas distintas")
+    # Duas escalas independentes: contagem nao e percentagem.
+    fig,ax=plt.subplots(figsize=(11,4.6))
+    eixo_pct=ax.twinx()
+    ax.plot(datas,[r["numero_patches"] for r in diarias],
+            label="Numero de patches P1",linewidth=1.8)
+    eixo_pct.plot(datas,[r["dominancia_maior_patch_pct"] for r in diarias],
+                  label="Dominancia maior patch (%)",linestyle="--",linewidth=1.8)
+    ax.set(title="Estrutura da paisagem: patches e dominancia",
+           ylabel="Numero de patches",xlabel="Data da observacao")
+    eixo_pct.set(ylabel="Dominancia do maior patch (%)",ylim=(0,100))
+    ax.set_ylim(bottom=0)
+    ax.xaxis.set_major_locator(mdates.AutoDateLocator())
+    ax.xaxis.set_major_formatter(mdates.DateFormatter("%d/%m"))
+    ax.yaxis.set_major_locator(MaxNLocator(integer=True))
+    ax.grid(alpha=.25)
+    fig.legend(loc="upper center",ncol=2,bbox_to_anchor=(.5,.99))
+    fig.autofmt_xdate()
+    fig.tight_layout()
+    fig.savefig(saida/"02_fragmentacao_dominancia.png",dpi=155)
+    plt.close(fig)
     tds=[date.fromisoformat(r["data_atual"]) for r in transicoes]
     _figura_barras(saida/"03_nova_area_evento.png",tds,
         [r["area_nova_evento_km2"]/r["dias_intervalo"] for r in transicoes],
