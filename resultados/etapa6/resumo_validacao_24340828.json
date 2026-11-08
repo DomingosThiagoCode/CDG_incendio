@@ -1,0 +1,218 @@
+{
+  "id_incendio": 24340828,
+  "observacoes": 57,
+  "transicoes": 56,
+  "alteracoes_fases": 7,
+  "n_cenarios_fases": 13,
+  "cenarios_fases": [
+    {
+      "cenario": "base",
+      "min_obs": 7,
+      "max_fases": 3,
+      "data_excluida": null,
+      "n_fases": 3,
+      "inicios": "2020-08-09;2020-09-04;2020-09-14",
+      "finais": "2020-09-03;2020-09-13;2020-10-09",
+      "b_i_c": 361.4076150558841,
+      "alterou_inicios": false
+    },
+    {
+      "cenario": "min_obs_5",
+      "min_obs": 5,
+      "max_fases": 3,
+      "data_excluida": null,
+      "n_fases": 3,
+      "inicios": "2020-08-09;2020-09-04;2020-09-14",
+      "finais": "2020-09-03;2020-09-13;2020-10-09",
+      "b_i_c": 361.4076150558841,
+      "alterou_inicios": false
+    },
+    {
+      "cenario": "min_obs_9",
+      "min_obs": 9,
+      "max_fases": 3,
+      "data_excluida": null,
+      "n_fases": 3,
+      "inicios": "2020-08-09;2020-09-04;2020-09-14",
+      "finais": "2020-09-03;2020-09-13;2020-10-09",
+      "b_i_c": 361.4076150558841,
+      "alterou_inicios": false
+    },
+    {
+      "cenario": "min_obs_11",
+      "min_obs": 11,
+      "max_fases": 3,
+      "data_excluida": null,
+      "n_fases": 3,
+      "inicios": "2020-08-09;2020-09-03;2020-09-14",
+      "finais": "2020-09-02;2020-09-13;2020-10-09",
+      "b_i_c": 363.7863347065559,
+      "alterou_inicios": true
+    },
+    {
+      "cenario": "maximo_duas_fases",
+      "min_obs": 7,
+      "max_fases": 2,
+      "data_excluida": null,
+      "n_fases": 2,
+      "inicios": "2020-08-09;2020-09-11",
+      "finais": "2020-09-10;2020-10-09",
+      "b_i_c": 431.09210221993663,
+      "alterou_inicios": true
+    },
+    {
+      "cenario": "remover_2020-09-03",
+      "min_obs": 7,
+      "max_fases": 3,
+      "data_excluida": "2020-09-03",
+      "n_fases": 3,
+      "inicios": "2020-08-09;2020-09-01;2020-09-14",
+      "finais": "2020-08-31;2020-09-13;2020-10-09",
+      "b_i_c": 355.2619119009804,
+      "alterou_inicios": true
+    },
+    {
+      "cenario": "remover_2020-09-04",
+      "min_obs": 7,
+      "max_fases": 3,
+      "data_excluida": "2020-09-04",
+      "n_fases": 3,
+      "inicios": "2020-08-09;2020-09-05;2020-09-14",
+      "finais": "2020-09-03;2020-09-13;2020-10-09",
+      "b_i_c": 355.8444749463808,
+      "alterou_inicios": true
+    },
+    {
+      "cenario": "remover_2020-09-10",
+      "min_obs": 7,
+      "max_fases": 3,
+      "data_excluida": "2020-09-10",
+      "n_fases": 3,
+      "inicios": "2020-08-09;2020-09-04;2020-09-13",
+      "finais": "2020-09-03;2020-09-12;2020-10-09",
+      "b_i_c": 353.0550893940301,
+      "alterou_inicios": true
+    },
+    {
+      "cenario": "remover_2020-09-11",
+      "min_obs": 7,
+      "max_fases": 3,
+      "data_excluida": "2020-09-11",
+      "n_fases": 3,
+      "inicios": "2020-08-09;2020-09-04;2020-09-12",
+      "finais": "2020-09-03;2020-09-10;2020-10-09",
+      "b_i_c": 349.87651116549955,
+      "alterou_inicios": true
+    },
+    {
+      "cenario": "remover_2020-09-13",
+      "min_obs": 7,
+      "max_fases": 3,
+      "data_excluida": "2020-09-13",
+      "n_fases": 3,
+      "inicios": "2020-08-09;2020-09-04;2020-09-14",
+      "finais": "2020-09-03;2020-09-12;2020-10-09",
+      "b_i_c": 355.7396362048331,
+      "alterou_inicios": false
+    },
+    {
+      "cenario": "remover_2020-09-14",
+      "min_obs": 7,
+      "max_fases": 3,
+      "data_excluida": "2020-09-14",
+      "n_fases": 3,
+      "inicios": "2020-08-09;2020-09-04;2020-09-15",
+      "finais": "2020-09-03;2020-09-13;2020-10-09",
+      "b_i_c": 355.40692524718577,
+      "alterou_inicios": true
+    },
+    {
+      "cenario": "remover_2020-09-24",
+      "min_obs": 7,
+      "max_fases": 3,
+      "data_excluida": "2020-09-24",
+      "n_fases": 3,
+      "inicios": "2020-08-09;2020-09-04;2020-09-14",
+      "finais": "2020-09-03;2020-09-13;2020-10-09",
+      "b_i_c": 356.4181831798484,
+      "alterou_inicios": false
+    },
+    {
+      "cenario": "remover_2020-10-09",
+      "min_obs": 7,
+      "max_fases": 3,
+      "data_excluida": "2020-10-09",
+      "n_fases": 3,
+      "inicios": "2020-08-09;2020-09-04;2020-09-14",
+      "finais": "2020-09-03;2020-09-13;2020-10-05",
+      "b_i_c": 355.79923696274,
+      "alterou_inicios": false
+    }
+  ],
+  "dias_com_contagem_sensivel": 56,
+  "pares_pontuais": 657,
+  "aumento_max_dominancia_por_contato_pp": 11.458128397000003,
+  "sensibilidade_direcoes": [
+    {
+      "concentracao_minima": 0,
+      "n_comparaveis": 55,
+      "mediana_diferenca_graus": 1.1422186460000034
+    },
+    {
+      "concentracao_minima": 0.3,
+      "n_comparaveis": 54,
+      "mediana_diferenca_graus": 1.1202765314999965
+    },
+    {
+      "concentracao_minima": 0.5,
+      "n_comparaveis": 51,
+      "mediana_diferenca_graus": 1.0983344169999896
+    },
+    {
+      "concentracao_minima": 0.7,
+      "n_comparaveis": 34,
+      "mediana_diferenca_graus": 0.6818339529999946
+    },
+    {
+      "concentracao_minima": 0.9,
+      "n_comparaveis": 24,
+      "mediana_diferenca_graus": 0.6285866494999937
+    }
+  ],
+  "lacunas": 3,
+  "soma_incorporacao_ja_queimada_km2": 195.958449957,
+  "soma_incrementos_p2_km2": 949.8434887049999,
+  "frac_incorporada_pct": 20.6306041244928,
+  "transicao_10_11_set": {
+    "id_incendio": "24340828",
+    "data_anterior": "2020-09-10",
+    "data_atual": "2020-09-11",
+    "dias_intervalo": "1",
+    "area_total_anterior_km2": "765.861116049",
+    "area_total_atual_km2": "873.685116224",
+    "area_nova_evento_km2": "107.824000187",
+    "taxa_nova_evento_km2_dia": "107.824000187",
+    "area_perdida_evento_km2": "0.000000012",
+    "p2_area_anterior_km2": "634.724947701",
+    "p2_area_atual_km2": "847.159061188",
+    "p2_incremento_geometrico_km2": "212.434113491",
+    "p2_incremento_ja_queimado_km2": "105.466162277",
+    "p2_incremento_nova_area_evento_km2": "106.967951214",
+    "nova_area_fora_p2_km2": "0.856048973",
+    "fracao_incremento_p2_ja_queimado_pct": "49.646528302",
+    "numero_patches_anterior": "42",
+    "numero_patches_atual": "25",
+    "eventos_convergencia": "1",
+    "eventos_surgimento_sem_sobreposicao": "3",
+    "tr_deslocamento_centroide_km": "6.582116011",
+    "tr_azimute_centroide_graus": "121.105020931",
+    "igt_azimute_ponderado_graus": "120.631719102",
+    "igt_concentracao_direcional": "0.981290232",
+    "desvio_fechamento_p2_m2": "0.000000343",
+    "desvio_fechamento_evento_m2": "0.000000136",
+    "lacuna_temporal": "False",
+    "alerta_escala_sensor": "False"
+  },
+  "geojson_feicoes": 10,
+  "validacao_externa_concluida": false
+}

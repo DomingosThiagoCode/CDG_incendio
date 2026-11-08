@@ -533,6 +533,23 @@ Os CSVs, mapas, gráficos e um relatório são versionados em
 [`resultados/etapa5/`](resultados/etapa5/). A segmentação temporal em
 fases é **exploratória**, não validação causal do comportamento do fogo.
 
+## Etapa 6: auditoria científica interna e validação externa planejada
+
+A [metodologia da Etapa 6](docs/protocolo_validacao_independente.md)
+estabelece níveis de evidência, protocolo de comparação do GlobFire com
+imagens de sensores independentes e testes de sensibilidade:
+fragmentação por contatos pontuais, fases estatísticas e direções TR × IGT.
+
+~~~bash
+python scripts/validar_cientificamente_etapa6.py --id 24340828 --saida resultados/etapa6
+python -m unittest discover -s tests -v
+~~~
+
+Produz CSVs, resumo JSON, relatório e camada de revisão QGIS.
+**Auditoria interna não equivale a validação externa da área queimada
+nem demonstra causas físicas do incêndio.** As imagens independentes,
+revisão do orientador e ensaio de outro evento continuam pendentes.
+
 ## Próximas etapas
 
 **Etapa 4 (Python):** executar a rotina integrada e conferir as saídas de comparação TR × IGT. A validação de um segundo ID e a análise científica integrada continuam no backlog. PostGIS não é mais dependência.
