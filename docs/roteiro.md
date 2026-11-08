@@ -76,6 +76,20 @@ reutilização a testar.
 - [ ] Discutir com orientador a interpretação física e os limiares de sensibilidade para MODIS.
 - [ ] Interpretar a resolução MODIS e as lacunas com apoio de validação externa.
 
+
+## Etapa 5 — integração P1 + linhagens + TR/IGT
+
+- [x] Definir contrato por ID, data, escala espacial, unidades e verificações cruzadas.
+- [x] Implementar decomposição da expansão P2 em área já queimada incorporada
+  e área realmente nova no evento.
+- [x] Criar código para cruzar etapas 2–4 e exportar série integrada, gráficos,
+  mapas e relatório interpretativo.
+- [ ] Executar e versionar os resultados reais da Etapa 5 após testes no CI.
+- [ ] Revisar fases descritivas e eventos geométricos com o orientador,
+  confrontando sensores, lacunas e dados ambientais independentes.
+- [ ] Após consolidação, estender a outros IDs e futuramente criar interface.
+- Referência: [metodologia](etapa5_metodologia.md).
+
 ## Etapa D — síntese científica e produto integrado
 
 - [ ] Integrar os indicadores P1 de paisagem com TR/IGT de P2 e as convergências da Etapa 3.

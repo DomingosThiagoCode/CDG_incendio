@@ -1,3 +1,4 @@
-# Dependencias usadas apenas na auditoria espacial (etapa 1).
+# Dependencias Python para auditoria, analise espacial e graficos.
 shapely>=2.0,<3
 pyproj>=3.6,<4
+matplotlib>=3.7,<4

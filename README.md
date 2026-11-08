@@ -480,6 +480,35 @@ precisam ser executadas e confrontadas em um servidor PostGIS real**.
 Números, definições, limites e pontos para discussão estão em
 [`docs/comparacao_tr_igt_24340828.md`](docs/comparacao_tr_igt_24340828.md).
 
+
+## Etapa 5 — síntese integrada do incêndio
+
+O novo script [integrar_etapa5.py](scripts/integrar_etapa5.py) cruza a
+evolução total do P1, os eventos geométricos entre patches, os indicadores
+TR e os incrementos IGT do P2, usando sempre as mesmas datas e projeção LAEA.
+
+**Novidade analítica:** separa, em cada transição, a área nova de fato no
+evento e a área **já queimada anteriormente** que foi incorporada ao P2.
+Isso impede interpretar fusões de patches como se todo o aumento do P2
+representasse novas queimadas.
+
+O script gera séries temporais, CSVs comparativos, gráficos, mapas
+e relatório interpretativo, sem alterar os GeoJSON originais:
+
+~~~bash
+python -m pip install -r requirements-auditoria.txt
+python scripts/integrar_etapa5.py --id 24340828 --saida resultados/etapa5
+~~~
+
+Os insumos são os P1/P2 e os CSVs já produzidos nas Etapas 2–4 do mesmo ID.
+O processamento para outro ID exige primeiro gerar seus dados; a aquisição
+automática via interface é uma extensão futura.
+
+**Documentação:** [metodologia e critérios](docs/etapa5_metodologia.md);
+[relatório de resultados](docs/analise_integrada_24340828.md);
+[produtos versionados](resultados/etapa5/). A análise de fases pela curva
+acumulada é descritiva e não infere causalidade física do incêndio.
+
 ## Próximas etapas
 
 **Etapa 4 (Python):** executar a rotina integrada e conferir as saídas de comparação TR × IGT. A validação de um segundo ID e a análise científica integrada continuam no backlog. PostGIS não é mais dependência.
