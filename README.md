@@ -124,8 +124,38 @@ nesse CRS e só utiliza reparos de geometria **em memória e condicionalmente**.
 Para este estudo de caso, não houve geometrias inválidas após a reprojeção.
 O [experimento de sensibilidade à regularização](docs/experimento_regularizacao_24340828.md)
 compara o original, `make_valid()` e `buffer(0)`. Os GeoJSON originais permanecem
-inalterados. A Etapa 1 está concluída; métricas e regras de conectividade
-serão abordadas na Etapa 2.
+inalterados. A Etapa 1 está concluída.
+
+### Métricas de paisagem (etapa 2)
+
+O módulo vetorial calcula indicadores por patch e por data, sobre os
+**mesmos P1 originais**, com área, perímetro e distâncias em projeção LAEA
+local. Inclui área acumulada, crescimento entre observações, número de
+patches, dominância, índice de forma vetorial e distância ao vizinho mais
+próximo. Preserva separadamente as áreas declaradas pelo GEE para não
+confundir os referenciais de cálculo.
+
+```bash
+python -m pip install -r requirements-auditoria.txt
+python scripts/calcular_metricas_paisagem.py \
+  dados/estudo_caso_24340828/P1_componentes_24340828.geojson \
+  --saida resultados/etapa2
+python -m unittest discover -s tests -v
+```
+
+Os resultados são gravados em `resultados/etapa2/` como CSVs por patch,
+por data e diagnóstico de conectividade por contato, acompanhados por
+um JSON de procedência e qualidade. O código usa o **ID lido do GeoJSON**,
+sem fixar o estudo de caso no processamento.
+
+**Ressalva científica importante:** a análise encontrou **657 pares
+de contatos pontuais entre patches ao longo de 57 datas**. Um agrupamento
+exploratório de feições por contato geométrico reduz a soma de 978
+componentes-data para 369 grupos-data e modifica a contagem em 56/57 datas.
+O experimento **não equivale diretamente à conectividade raster 8** e
+**não altera** o P1/P2 original. Consulte os números, fórmulas,
+limitações e referências em
+[docs/metricas_paisagem_24340828.md](docs/metricas_paisagem_24340828.md).
 
 ## Funcionamento
 
@@ -151,7 +181,10 @@ Todos os componentes    Região móvel principal
 
 ### Separação de componentes
 
-Para cada data, a geometria acumulada é dividida em seus componentes espacialmente desconectados.
+Para cada data, a geometria acumulada é decomposta nas subgeometrias que
+compõem o P1. Elas não se sobrepõem em área relevante neste estudo de caso,
+mas **podem compartilhar vértices**; portanto, não devem ser descritas
+indiscriminadamente como desconectadas em qualquer convenção topológica.
 
 Cada componente possui atributos como:
 

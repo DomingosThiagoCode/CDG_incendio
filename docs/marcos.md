@@ -21,9 +21,15 @@ sem tratar trabalhos exploratórios como resultados validados do estudo final.
    a fusão, testes sintéticos e comparação de regularização. Os originais
    permaneceram intactos; o resultado está em
    [auditoria_espacial_24340828.md](auditoria_espacial_24340828.md).
-6. **Próxima etapa:** definir fórmulas, critérios de conectividade e testes
-   das métricas de paisagem; implementar e comparar os métodos de região
-   móvel depois. Resultados científicos finais ainda estão em análise.
+6. **Métricas de paisagem (Etapa 2):** implementadas métricas vetoriais
+   reproduzíveis por patch e data, além de uma análise de sensibilidade por
+   contato de vértices. Foram observados 657 pares de contatos pontuais ao
+   longo das datas, mostrando que a contagem de patches depende da
+   interpretação topológica; os P1/P2 originais permanecem como base.
+   Consulte [metricas_paisagem_24340828.md](metricas_paisagem_24340828.md).
+7. **Etapa seguinte:** aprofundar interpretação dos resultados e comparação
+   independente das metodologias de região móvel da Major e do Coronel.
+   Resultados científicos finais ainda estão em análise.
 
 ## O que significa “P1/P2 prontos”
 

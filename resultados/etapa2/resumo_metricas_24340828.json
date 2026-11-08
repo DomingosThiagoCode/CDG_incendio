@@ -1,0 +1,163 @@
+{
+  "id_incendio": 24340828,
+  "numero_registros_patch_data": 978,
+  "numero_datas": 57,
+  "data_inicial": "2020-08-09",
+  "data_final": "2020-10-09",
+  "area_final_laea_km2": 981.2908540208683,
+  "area_final_gee_km2": 984.6144552538963,
+  "mediana_desvio_area_laea_vs_gee_pct": -0.33759150191783327,
+  "maximo_patches_por_data": 42,
+  "datas_maior_rank_difere_entre_gee_e_laea": [],
+  "porcentagem_enn_zero_por_contato": 72.9038854805726,
+  "maior_taxa_media_intervalo": {
+    "data_final_intervalo": "2020-09-11",
+    "km2_dia": 107.8240001748408,
+    "dias_intervalo": 1
+  },
+  "lacunas_maiores_1_dia": [
+    {
+      "data": "2020-09-24",
+      "dias": 2
+    },
+    {
+      "data": "2020-10-01",
+      "dias": 2
+    },
+    {
+      "data": "2020-10-09",
+      "dias": 4
+    }
+  ],
+  "contatos_entre_patches": {
+    "contatos_pontuais": 657,
+    "contatos_por_borda": 0,
+    "sobreposicoes_maiores_1m2": 0,
+    "amostras": [
+      {
+        "data": "2020-08-10",
+        "rank_a": 2,
+        "rank_b": 3,
+        "tipo": "contatos_pontuais"
+      },
+      {
+        "data": "2020-08-11",
+        "rank_a": 1,
+        "rank_b": 4,
+        "tipo": "contatos_pontuais"
+      },
+      {
+        "data": "2020-08-11",
+        "rank_a": 1,
+        "rank_b": 2,
+        "tipo": "contatos_pontuais"
+      },
+      {
+        "data": "2020-08-11",
+        "rank_a": 6,
+        "rank_b": 13,
+        "tipo": "contatos_pontuais"
+      },
+      {
+        "data": "2020-08-11",
+        "rank_a": 11,
+        "rank_b": 15,
+        "tipo": "contatos_pontuais"
+      },
+      {
+        "data": "2020-08-12",
+        "rank_a": 1,
+        "rank_b": 3,
+        "tipo": "contatos_pontuais"
+      },
+      {
+        "data": "2020-08-12",
+        "rank_a": 1,
+        "rank_b": 4,
+        "tipo": "contatos_pontuais"
+      },
+      {
+        "data": "2020-08-12",
+        "rank_a": 1,
+        "rank_b": 9,
+        "tipo": "contatos_pontuais"
+      },
+      {
+        "data": "2020-08-12",
+        "rank_a": 1,
+        "rank_b": 6,
+        "tipo": "contatos_pontuais"
+      },
+      {
+        "data": "2020-08-12",
+        "rank_a": 1,
+        "rank_b": 2,
+        "tipo": "contatos_pontuais"
+      },
+      {
+        "data": "2020-08-12",
+        "rank_a": 3,
+        "rank_b": 7,
+        "tipo": "contatos_pontuais"
+      },
+      {
+        "data": "2020-08-12",
+        "rank_a": 7,
+        "rank_b": 14,
+        "tipo": "contatos_pontuais"
+      },
+      {
+        "data": "2020-08-13",
+        "rank_a": 1,
+        "rank_b": 15,
+        "tipo": "contatos_pontuais"
+      },
+      {
+        "data": "2020-08-13",
+        "rank_a": 1,
+        "rank_b": 5,
+        "tipo": "contatos_pontuais"
+      },
+      {
+        "data": "2020-08-13",
+        "rank_a": 1,
+        "rank_b": 11,
+        "tipo": "contatos_pontuais"
+      }
+    ]
+  },
+  "sensibilidade_contato_vetorial": {
+    "soma_grupos_por_contato_patch_data": 369,
+    "datas_com_reducao_de_contagem": 56,
+    "maior_reducao_patches_em_uma_data": 26,
+    "soma_reducoes_patch_data": 609,
+    "ultimo_dia": {
+      "id_incendio": 24340828,
+      "data": "2020-10-09",
+      "numero_patches_original": 15,
+      "numero_grupos_por_contato_vetorial": 3,
+      "dominancia_apos_agrupar_contatos_pct": 99.76019402022555,
+      "reducoes_na_contagem": 12,
+      "pares_contato_pontual": 13,
+      "pares_contato_borda": 0,
+      "dominancia_original_pct": 96.94791275904312
+    },
+    "limite": "Simulacao topologica de agrupamento de feicoes por contato vetorial; NAO corresponde diretamente a vizinhanca raster 8 e NAO substitui P1."
+  },
+  "observacao": "Patches fixados pelo P1 vetorial: nenhum algoritmo de vizinhanca raster 4/8 aplicado. Areas/perimetros em LAEA, nao idênticos aos calculos originais do Google Earth Engine. Taxas medias entre observacoes; nao medem velocidade da frente ativa.",
+  "projecao": {
+    "crs": "LAEA local / WGS84",
+    "centro_lon": -57.73985836,
+    "centro_lat": -16.60208267,
+    "limites_lonlat": [
+      -57.98886569963829,
+      -16.887498603125184,
+      -57.49085101419071,
+      -16.316666735093015
+    ],
+    "definicao_laea_proj4": "+proj=laea +lat_0=-16.6020826691 +lon_0=-57.7398583569 +datum=WGS84 +units=m +no_defs"
+  },
+  "geometrias_reparadas_apos_projecao": 0,
+  "origem_p1": "dados/estudo_caso_24340828/P1_componentes_24340828.geojson",
+  "sha256_p1": "7ae2d4baa3667a08a217983da08c44ddc94c97c21b5fa512cb2ca2db15296652"
+}
