@@ -1,0 +1,4 @@
+fase_descritiva,data_inicio,data_fim,observacoes,taxa_tendencia_laea_km2_dia,incremento_area_laea_km2,numero_convergencias_nas_transicoes,modelo_segmentos,criterio_bic,nota
+F1,2020-08-09,2020-09-03,26,17.165770999,438.552245347,32,3,361.407615056,Segmentacao exploratoria da curva acumulada; sem inferir causalidade.
+F2,2020-09-04,2020-09-13,10,45.573815313,409.249995133,23,3,361.407615056,Segmentacao exploratoria da curva acumulada; sem inferir causalidade.
+F3,2020-09-14,2020-10-09,21,1.943747698,52.626451896,17,3,361.407615056,Segmentacao exploratoria da curva acumulada; sem inferir causalidade.
