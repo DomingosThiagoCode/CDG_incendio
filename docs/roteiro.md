@@ -90,11 +90,24 @@ reutilização a testar.
 - [ ] Após consolidação, estender a outros IDs e futuramente criar interface.
 - Referência: [metodologia](etapa5_metodologia.md).
 
+## Etapa 6 — auditoria de robustez e validação externa
+
+- [x] Distinguir evidência computacional de inferência física externa.
+- [x] Implementar sensibilidade de contatos por vértice preservando o P1.
+- [x] Implementar cenários alternativos para fases BIC e retirada de datas.
+- [x] Implementar sensibilidade das direções resumidas IGT por concentração.
+- [x] Preparar camadas QGIS, quadro de evidências e protocolo independente.
+- [ ] Conferir casos com imagens independentes, BurnDate, incerteza e QA.
+- [ ] Discutir os achados e possíveis interpretações com o orientador.
+- [ ] Redigir conclusões científicas definitivas após esse confronto.
+
+Referência: [protocolo de validação](protocolo_validacao_independente.md).
+
 ## Etapa D — validação científica e generalização futura
 
 - [x] Integrar numericamente indicadores P1, linhagens e TR/IGT em Python.
 - [x] Produzir os gráficos, mapas e o relatório exploratório do estudo de caso.
-- [ ] Revisar interpretações, fases, escalas e incertezas com o orientador.
+- [ ] Revisar interpretações, fases, escalas e incertezas com o orientador (validação empírica da Etapa 6).
 - [ ] Confrontar casos de convergência com imagem e variáveis ambientais independentes.
 - [ ] Testar outro ID para avaliar a generalização.
 - [ ] Integrar a aquisição GEE ao pipeline Python e, futuramente, interface temporal.

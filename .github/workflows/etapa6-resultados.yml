@@ -1,0 +1,54 @@
+name: Etapa 6 - auditar e publicar produtos
+
+on:
+  push:
+    branches: [feat/etapa6-validacao-cientifica]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  auditar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements-auditoria.txt
+      - name: Instalar dependencias e rodar testes da Etapa 6
+        run: |
+          python -m pip install -r requirements-auditoria.txt
+          python -m unittest discover -s tests -p 'test_validar_cientificamente_etapa6.py' -v
+      - name: Executar auditoria e preparar dossie
+        run: |
+          python scripts/validar_cientificamente_etapa6.py --id 24340828 --saida resultados/etapa6
+          cp resultados/etapa6/relatorio_validacao_24340828.md docs/relatorio_validacao_24340828.md
+      - name: Verificar resultados obrigatorios
+        run: |
+          test -s resultados/etapa6/resumo_validacao_24340828.json
+          test -s resultados/etapa6/fases_sensibilidade_24340828.csv
+          test -s resultados/etapa6/direcoes_sensibilidade_24340828.csv
+          test -s resultados/etapa6/revisao_qgis_24340828.geojson
+          test -s docs/relatorio_validacao_24340828.md
+      - name: Versionar resultados no branch de trabalho
+        if: github.ref_name == 'feat/etapa6-validacao-cientifica'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add resultados/etapa6/ docs/relatorio_validacao_24340828.md
+          if ! git diff --cached --quiet; then
+            git commit -m "data: publica auditoria interna da etapa 6 [skip ci]"
+            git push origin HEAD:feat/etapa6-validacao-cientifica
+          fi
+      - name: Anexar resultado para revisao
+        uses: actions/upload-artifact@v4
+        with:
+          name: etapa6-validacao-interna-24340828
+          path: resultados/etapa6/
+          retention-days: 90
