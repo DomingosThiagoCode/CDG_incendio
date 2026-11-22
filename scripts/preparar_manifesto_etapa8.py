@@ -18,6 +18,14 @@ RAIZ = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(RAIZ / "scripts"))
 from sintetizar_evidencias_etapa7 import sintetizar
 
+COLUNAS_REVISAO = (
+    "id_incendio", "codigo", "tipo", "data_anterior", "data_atual",
+    "sensor", "id_cena_pre", "id_cena_pos", "data_cena_pre",
+    "data_cena_pos", "fracao_valida_pre", "fracao_valida_pos",
+    "fracao_valida_comum", "contexto_ambiental", "evidencias",
+    "parecer", "incerteza_temporal", "revisor", "data_revisao"
+)
+
 COLUNAS = (
     "id_incendio", "tipo", "criterio", "codigo", "data_anterior", "data_atual",
     "janela_pre_inicio", "janela_pre_fim_exclusivo",
@@ -127,6 +135,19 @@ def executar(raiz: Path, evento: int, pasta: Path, controles: int = 2,
     (pasta / f"resumo_triagem_{evento}.json").write_text(
         json.dumps(meta, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
+    # A ficha em branco explicita o que NÃO foi observado ainda.
+    with (pasta / f"ficha_revisao_{evento}.csv").open("w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=COLUNAS_REVISAO)
+        w.writeheader()
+        for registro in linhas:
+            for sensor in ("S2", "L8"):
+                w.writerow({
+                    "id_incendio": evento, "codigo": registro["codigo"],
+                    "tipo": registro["tipo"],
+                    "data_anterior": registro["data_anterior"],
+                    "data_atual": registro["data_atual"],
+                    "sensor": sensor, "parecer": "pendente"
+                })
     return meta
 
 
