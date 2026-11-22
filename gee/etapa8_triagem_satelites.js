@@ -97,7 +97,6 @@ function buscar(inicio, fim) {
         .filterBounds(roi).filterDate(inicio, fim).map(prepararS2)
     : ee.ImageCollection('LANDSAT/LC08/C02/T1_L2')
         .filterBounds(roi).filterDate(inicio, fim)
-        .filter(ee.Filter.eq('PROCESSING_LEVEL', 'L2SP'))
         .map(prepararL8);
   return colecao.map(pontuar).sort('fracao_valida_roi', false);
 }
