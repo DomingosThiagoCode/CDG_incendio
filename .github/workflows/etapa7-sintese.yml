@@ -1,0 +1,44 @@
+name: Etapa 7 - sintese cientifica minima
+
+on:
+  pull_request:
+    paths:
+      - "scripts/sintetizar_evidencias_etapa7.py"
+      - "tests/test_sintetizar_evidencias_etapa7.py"
+      - "docs/etapa7_selecao_evidencias.md"
+      - ".github/workflows/etapa7-sintese.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sintese:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements-auditoria.txt
+      - name: Dependencias
+        run: python -m pip install -r requirements-auditoria.txt
+      - name: Verificar regressao completa
+        run: python -m unittest discover -s tests -v
+      - name: Gerar pacote minimo da etapa 7
+        run: python scripts/sintetizar_evidencias_etapa7.py --id 24340828 --saida resultados/etapa7
+      - name: Conferir produtos
+        run: |
+          test -s resultados/etapa7/resumo_minimo_24340828.json
+          test -s resultados/etapa7/casos_sentinela_24340828.csv
+          test -s resultados/etapa7/relatorio_sintese_24340828.md
+          test -s resultados/etapa7/figura_01_crescimento_incorporacao.png
+          test -s resultados/etapa7/figura_02_concordancia_direcional.png
+      - name: Anexar sintese para revisao
+        uses: actions/upload-artifact@v4
+        with:
+          name: etapa7-sintese-24340828
+          path: resultados/etapa7/
+          retention-days: 90
