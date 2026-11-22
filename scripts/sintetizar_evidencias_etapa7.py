@@ -290,7 +290,7 @@ def executar(raiz: Path, evento: int, saida: Path, *, sem_figuras=False) -> dict
     (saida / f"relatorio_sintese_{evento}.md").write_text(
         relatorio(resumo, casos), encoding="utf-8"
     )
-    with (saida / f"casos_sentincela_{evento}.csv").open(
+    with (saida / f"casos_sentinela_{evento}.csv").open(
         "w", encoding="utf-8", newline=""
     ) as arquivo:
         campos = list(casos[0])
