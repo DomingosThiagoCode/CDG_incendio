@@ -1,0 +1,45 @@
+name: Etapa 8 - preregistro de validacao externa
+
+on:
+  pull_request:
+    paths:
+      - "scripts/preparar_manifesto_etapa8.py"
+      - "gee/etapa8_triagem_satelites.js"
+      - "tests/test_preparar_manifesto_etapa8.py"
+      - "docs/etapa8_validacao_externa.md"
+      - ".github/workflows/etapa8-triagem.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  manifesto:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements-auditoria.txt
+      - name: Dependencias de dados geoespaciais
+        run: python -m pip install -r requirements-auditoria.txt
+      - name: Testes completos do projeto
+        run: python -m unittest discover -s tests -v
+      - name: Verificacao sintatica do script Earth Engine
+        run: node --check gee/etapa8_triagem_satelites.js
+      - name: Gerar manifesto e fichas em branco
+        run: python scripts/preparar_manifesto_etapa8.py --id 24340828 --saida resultados/etapa8
+      - name: Conferir produtos
+        run: |
+          test -s resultados/etapa8/manifesto_cenas_24340828.csv
+          test -s resultados/etapa8/ficha_revisao_24340828.csv
+          test -s resultados/etapa8/resumo_triagem_24340828.json
+      - name: Publicar pacote de amostragem para revisao
+        uses: actions/upload-artifact@v4
+        with:
+          name: etapa8-amostragem-24340828
+          path: resultados/etapa8/
+          retention-days: 90
