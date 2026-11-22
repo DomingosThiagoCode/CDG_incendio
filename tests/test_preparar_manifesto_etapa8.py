@@ -66,7 +66,27 @@ class TestesRegressaoReal(unittest.TestCase):
             self.assertEqual(len(rows), 5)
             self.assertTrue(
                 (Path(pasta) / "resumo_triagem_24340828.json").exists())
+            with (Path(pasta) / "ficha_revisao_24340828.csv").open(
+                    encoding="utf-8", newline="") as f:
+                fichas = list(csv.DictReader(f))
+            self.assertEqual(len(fichas), 10)
+            self.assertEqual({x["parecer"] for x in fichas}, {"pendente"})
+            self.assertTrue(all(not x["id_cena_pre"] for x in fichas))
         self.assertEqual(antes, fonte.read_bytes())
+
+    def test_script_gee_coerente_com_amostra(self):
+        codigo = (RAIZ / "gee/etapa8_triagem_satelites.js").read_text()
+        for d0, d1 in (
+            ("2020-09-10", "2020-09-11"),
+            ("2020-08-31", "2020-09-01"),
+            ("2020-08-11", "2020-08-12"),
+            ("2020-09-21", "2020-09-22"),
+            ("2020-10-01", "2020-10-02"),
+        ):
+            self.assertIn("d0: '" + d0 + "', d1: '" + d1 + "'", codigo)
+        self.assertIn("COPERNICUS/S2_SR_HARMONIZED", codigo)
+        self.assertIn("LANDSAT/LC08/C02/T1_L2", codigo)
+
 
 
 if __name__ == "__main__":
